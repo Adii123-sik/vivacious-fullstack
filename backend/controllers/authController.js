@@ -34,15 +34,15 @@ export const adminLogin = (req, res) => {
 
     console.log("🔐 JWT GENERATED");
 
-    res.cookie("adminToken",token,{
-      httpOnly:true,
-      sameSite:"strict",
-      secure:false,
-      maxAge:24*60*60*1000 // 1 day
+    res.cookie("adminToken", token, {
+      httpOnly: true,
+      secure: true,        // 🔥 HTTPS required
+      sameSite: "none",    // 🔥 Cross-origin (Vercel → Render)
+      maxAge: 24 * 60 * 60 * 1000
     });
 
     res.json({
-      message:"Login successful"
+      message: "Login successful"
     })
   });
 };
