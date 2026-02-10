@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-import Login from "./pages/Login.jsx";
+import Login from "./Pages/Login.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
 import QueryList from "./Pages/QueryList.jsx";
 import AddReview from "./Pages/AddReview.jsx";
