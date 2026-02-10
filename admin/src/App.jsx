@@ -1,28 +1,28 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-import Login from "./Pages/Login.jsx";
-import Dashboard from "./Pages/Dashboard.jsx";
-import QueryList from "./Pages/QueryList.jsx";
-import AddReview from "./Pages/AddReview.jsx";
-import Reviews from "./Pages/Reviews.jsx";
+import Login from "./Pages/Login";
+import Dashboard from "./Pages/Dashboard";
+import QueryList from "./Pages/QueryList";
+import AddReview from "./Pages/AddReview";
+import Reviews from "./Pages/Reviews";
 import Team from "./Pages/Team";
 import AddTeam from "./Pages/AddTeam";
-import Projects from "./Pages/Projects.jsx";
-import AddProject from "./Pages/AddProject.jsx";
-import Blog from "./Pages/Blog.jsx";
-import AddBlog from "./Pages/AddBlog.jsx";
-import Pricing from "./Pages/Pricing.jsx";
-import AddPricing from "./Pages/AddPricing.jsx";
-import Partners from "./Pages/Partners.jsx"
-import AddPartner from "./Pages/AddPartner.jsx";
-import Settings from "./Pages/Settings.jsx";
-import History from "./Pages/History.jsx"
-import AddHistory from "./Pages/AddHistory.jsx";
-import FAQ from "./Pages/FAQ.jsx";
-import AddFAQ from "./Pages/AddFAQ.jsx";
-import Services from "./Pages/Services.jsx";
-import AddService from "./Pages/AddService.jsx";
+import Projects from "./Pages/Projects";
+import AddProject from "./Pages/AddProject";
+import Blog from "./Pages/Blog";
+import AddBlog from "./Pages/AddBlog";
+import Pricing from "./Pages/Pricing";
+import AddPricing from "./Pages/AddPricing";
+import Partners from "./Pages/Partners"
+import AddPartner from "./Pages/AddPartner";
+import Settings from "./Pages/Settings";
+import History from "./Pages/History"
+import AddHistory from "./Pages/AddHistory";
+import FAQ from "./Pages/FAQ";
+import AddFAQ from "./Pages/AddFAQ";
+import Services from "./Pages/Services";
+import AddService from "./Pages/AddService";
 
 
 export default function App() {
