@@ -1,0 +1,62 @@
+/* CTA wrapper */
+.pricing-cta {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Responsive CTA button */
+.pricing-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Responsive sizing */
+  width: auto;
+  max-width: 520px;
+  padding: 14px 36px;
+
+  border-radius: 999px;
+  border: 2px solid #ff4d00;
+  background: #fff;
+  color: #ff4d00;
+
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+
+  box-shadow: 0 10px 24px rgba(255, 77, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* Desktop hover only */
+@media (hover: hover) and (pointer: fine) {
+  .pricing-cta__btn:hover {
+    background: #ff4d00;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(255, 77, 0, 0.28);
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 991px) {
+  .pricing-cta__btn {
+    padding: 13px 30px;
+    max-width: 480px;
+  }
+}
+
+/* Mobile: full width button */
+@media (max-width: 575px) {
+  .pricing-cta {
+    margin-top: 18px;
+  }
+
+  .pricing-cta__btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+}

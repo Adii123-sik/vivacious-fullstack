@@ -1,0 +1,108 @@
+/* Swiper slide height full so card can stretch */
+.testimonials-slides .swiper-slide{
+  height: auto;
+}
+
+/* Card: same height + better UI */
+.single-testimonials-item{
+  height: 360px;                 /* ✅ same height for all cards */
+  width: 100%;                   /* ✅ same width */
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px 22px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  display: flex;                 /* ✅ enables layout control */
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* Profile section */
+.client-info-top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.client-img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(0,0,0,0.06);
+}
+
+/* Name & role */
+.single-testimonials-item .title h3{
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.single-testimonials-item .title span{
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* Stars */
+.single-testimonials-item .rating{
+  margin: 10px 0 14px;
+}
+
+.single-testimonials-item .star{
+  font-size: 16px;
+  margin: 0 2px;
+  opacity: 0.35;
+}
+
+.single-testimonials-item .star.filled{
+  opacity: 1;
+}
+
+/* Feedback text (keeps card equal height nicely) */
+.single-testimonials-item .feedback-text{
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  opacity: 0.85;
+
+  height: calc(1.8em * 5);  /* 5 lines */
+  overflow: hidden;
+}
+
+
+/* Optional: quote background like your image */
+.single-testimonials-item::before{
+  content: "❝";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 60px;
+  opacity: 0.06;
+}
+.testimonials-slides{
+  position: relative;
+}
+
+.testimonials-slides .swiper-button-prev,
+.testimonials-slides .swiper-button-next{
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.testimonials-slides .swiper-button-prev:after,
+.testimonials-slides .swiper-button-next:after{
+  font-size: 14px;
+  font-weight: 700;
+}
