@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/_App/layout"
+import Layout from "../components/_App/Layout"
 import Seo from "../components/_App/seo"
 import Navbar from "../components/_App/Navbar"
 import PageBanner from "../components/Common/PageBanner"
