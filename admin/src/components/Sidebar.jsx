@@ -15,6 +15,7 @@ export default function Sidebar({ open, setOpen }) {
       <div
         className={`
           fixed top-0 left-0 h-screen w-64 bg-white border-r border-slate-200 z-30
+          overflow-y-auto
           transform transition-transform duration-300
           ${open ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0
@@ -32,160 +33,36 @@ export default function Sidebar({ open, setOpen }) {
         </div>
 
         {/* Menu */}
-        <nav className="mt-6 flex flex-col px-4 space-y-1">
-          <NavLink
-            to="/dashboard"
-            onClick={() => setOpen(false)}
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Dashboard
-          </NavLink>
-
-          <NavLink
-            to="/queries"
-            onClick={() => setOpen(false)}
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Query List
-          </NavLink>
-
-
-
-          <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Services
-          </NavLink>
-          <NavLink
-            to="/reviews"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            ⭐ All Reviews
-          </NavLink>
-          
-          <NavLink
-            to="/team"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Team Members
-          </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Our Projects
-          </NavLink>
-          <NavLink
-            to="/blogs"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Our Blogs
-          </NavLink>
-          <NavLink
-            to="/pricing"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Our Pricing Plans
-          </NavLink>
-          <NavLink
-            to="/partners"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Our Partners
-          </NavLink>
-          <NavLink
-            to="/history"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Our History
-          </NavLink>
-          <NavLink
-            to="/faq"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            FAQs
-          </NavLink>
-          <NavLink
-            to="/settings"
-            className={({ isActive }) =>
-              `px-4 py-3 rounded-lg text-sm font-medium transition-all
-    ${isActive
-                ? "bg-orange-100 text-orange-600"
-                : "text-slate-600 hover:bg-slate-100"
-              }`
-            }
-          >
-            Settings
-          </NavLink>
-
-
-
-
+        <nav className="mt-6 flex flex-col px-4 space-y-1 pb-20">
+          {[
+            { to: "/dashboard", label: "Dashboard" },
+            { to: "/queries", label: "Query List" },
+            { to: "/services", label: "Services" },
+            { to: "/reviews", label: "⭐ All Reviews" },
+            { to: "/team", label: "Team Members" },
+            { to: "/projects", label: "Our Projects" },
+            { to: "/blogs", label: "Our Blogs" },
+            { to: "/pricing", label: "Our Pricing Plans" },
+            { to: "/partners", label: "Our Partners" },
+            { to: "/history", label: "Our History" },
+            { to: "/faq", label: "FAQs" },
+            { to: "/settings", label: "Settings" },
+          ].map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                `px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                  isActive
+                    ? "bg-orange-100 text-orange-600"
+                    : "text-slate-600 hover:bg-slate-100"
+                }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
         {/* Footer */}
@@ -196,3 +73,4 @@ export default function Sidebar({ open, setOpen }) {
     </>
   );
 }
+
