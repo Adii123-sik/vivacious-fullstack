@@ -85,7 +85,7 @@ const AddService = () => {
         setForm({ ...form, ...data });
 
         if (data.service_banner_image) {
-          setPreview(`${API_BASE_URL}${data.service_banner_image}`);
+          setPreview(data.service_banner_image);
         }
       } catch {
         toast.error("Failed to load service");

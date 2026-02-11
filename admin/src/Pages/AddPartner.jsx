@@ -33,7 +33,7 @@ const AddPartner = () => {
         const data = await getPartnerById(id);
         setName(data.name || "");
         if (data.logo) {
-          setPreview(`${API_BASE_URL}${data.logo}`);
+          setPreview(data.logo);
         }
       } catch {
         toast.error("Failed to load partner");

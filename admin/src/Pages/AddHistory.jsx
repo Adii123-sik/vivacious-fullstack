@@ -43,7 +43,7 @@ const AddHistory = () => {
         });
 
         if (data.image) {
-          setPreview(`${API_BASE_URL}${data.image}`);
+          setPreview(data.image);
         }
       } catch {
         toast.error("Failed to load history");
