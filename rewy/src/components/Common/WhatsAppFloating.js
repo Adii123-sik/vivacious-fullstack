@@ -36,17 +36,19 @@ const FloatingContact = () => {
     return () => clearInterval(id)
   }, [])
 
-  /* CLOSE ON OUTSIDE CLICK */
+  /* CLOSE ON OUTSIDE CLICK (FIXED FOR MOBILE) */
   useEffect(() => {
     const onDown = (e) => {
       if (!wrapRef.current) return
-      if (!wrapRef.current.contains(e.target)) setOpen(false)
+      if (!wrapRef.current.contains(e.target)) {
+        setOpen(false)
+      }
     }
-    document.addEventListener("mousedown", onDown)
-    document.addEventListener("touchstart", onDown, { passive: true })
+
+    document.addEventListener("pointerdown", onDown)
+
     return () => {
-      document.removeEventListener("mousedown", onDown)
-      document.removeEventListener("touchstart", onDown)
+      document.removeEventListener("pointerdown", onDown)
     }
   }, [])
 
@@ -64,7 +66,10 @@ const FloatingContact = () => {
   const message = "Hello Vivacious Solutions! I want to start a project."
 
   const callUrl = phoneClean ? `tel:${phoneClean}` : "#"
-  const smsUrl = phoneClean ? `sms:${phoneClean}?body=${encodeURIComponent(message)}` : "#"
+  const smsUrl = phoneClean
+    ? `sms:${phoneClean}?body=${encodeURIComponent(message)}`
+    : "#"
+
   const waUrl = whatsappClean
     ? `https://wa.me/${whatsappClean}?text=${encodeURIComponent(message)}`
     : "#"
@@ -108,7 +113,7 @@ const FloatingContact = () => {
             href={instaUrl}
             className="float-action float-ig"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="Instagram"
             title="Instagram"
           >
@@ -122,7 +127,7 @@ const FloatingContact = () => {
             href={waUrl}
             className="float-action float-wa"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="WhatsApp"
             title="WhatsApp"
           >
