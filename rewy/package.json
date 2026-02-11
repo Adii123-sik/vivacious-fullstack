@@ -3,6 +3,11 @@
   "private": true,
   "description": "Gatsby React IT Startup & Technology Template",
   "version": "2.2.0",
+
+  "engines": {
+    "node": "22.x"
+  },
+
   "author": "@envytheme",
   "dependencies": {
     "animate.css": "^4.1.1",
