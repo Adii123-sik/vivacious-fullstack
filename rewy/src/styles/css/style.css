@@ -11173,3 +11173,10 @@ Go Top CSS
     -webkit-tap-highlight-color: transparent;
   }
 }
+
+
+
+
+.float-wrap {
+  isolation: isolate;
+}
