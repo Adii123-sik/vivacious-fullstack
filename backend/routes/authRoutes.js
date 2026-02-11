@@ -17,8 +17,14 @@ router.get("/check", adminAuth, (req, res) => {
 
 /* 3️⃣ LOGOUT (optional but recommended) */
 router.post("/logout", (req, res) => {
-  res.clearCookie("adminToken");
+  res.clearCookie("adminToken", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
+
   res.json({ message: "Logged out" });
 });
+
 
 export default router;
