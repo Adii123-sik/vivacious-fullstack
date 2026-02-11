@@ -34,9 +34,13 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin: "https://vivacious-fullstack-sn2x.vercel.app",
+  origin: [
+    "https://vivacious-fullstack-sn2x.vercel.app",   // Admin
+    "https://698b7e0f76487f4d24ccfd75--adorable-sunflower-f3716d.netlify.app" // Frontend
+  ],
   credentials: true
 }));
+
 
 
 /* ================= HEALTH CHECK ================= */
