@@ -81,7 +81,15 @@ const FloatingContact = () => {
       ref={wrapRef}
       className={`float-wrap ${open ? "is-open" : ""}`}
       aria-label="Contact shortcuts"
+      style={{
+        position: "fixed",
+        bottom: "30px",
+        right: "20px",
+        zIndex: 99999,
+        pointerEvents: "auto"
+      }}
     >
+
       <div className="float-actions">
         {/* CALL */}
         {phoneClean && (
