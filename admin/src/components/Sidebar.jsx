@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function Sidebar({ open, setOpen }) {
   return (
     <>
-      {/* Overlay (mobile only) */}
+      {/* Overlay (Mobile Only) */}
       {open && (
         <div
           className="fixed inset-0 bg-black/40 z-20 md:hidden"
@@ -15,7 +15,7 @@ export default function Sidebar({ open, setOpen }) {
       <div
         className={`
           fixed top-0 left-0 h-screen w-64 bg-white border-r border-slate-200 z-30
-          overflow-y-auto
+          flex flex-col
           transform transition-transform duration-300
           ${open ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0
@@ -32,8 +32,8 @@ export default function Sidebar({ open, setOpen }) {
           </button>
         </div>
 
-        {/* Menu */}
-        <nav className="mt-6 flex flex-col px-4 space-y-1 pb-20">
+        {/* Scrollable Menu */}
+        <nav className="flex-1 overflow-y-auto mt-6 flex flex-col px-4 space-y-1">
           {[
             { to: "/dashboard", label: "Dashboard" },
             { to: "/queries", label: "Query List" },
@@ -66,7 +66,7 @@ export default function Sidebar({ open, setOpen }) {
         </nav>
 
         {/* Footer */}
-        <div className="absolute bottom-4 w-full text-center text-xs text-slate-400">
+        <div className="p-4 text-center text-xs text-slate-400 border-t">
           © 2026 Vivacious Solutions
         </div>
       </div>
