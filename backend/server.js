@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // CORS (Admin + Frontend + Render safe)
-import cors from "cors";
+
 
 app.use(cors({
   origin: "https://vivacious-fullstack-sn2x.vercel.app",
