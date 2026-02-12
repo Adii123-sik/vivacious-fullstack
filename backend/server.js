@@ -37,7 +37,10 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     "https://vivacious-fullstack-sn2x.vercel.app",  // Admin Panel
-    "https://vivacious-fullstack-w3kt.vercel.app"   // Public Gatsby
+    "https://vivacious-fullstack-w3kt.vercel.app" ,  // Public Gatsby
+    "http://localhost:5173",
+    "http://localhost:8000"
+    
   ],
   credentials: true
 }));

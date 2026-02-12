@@ -11180,3 +11180,755 @@ Go Top CSS
 .float-wrap {
   isolation: isolate;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pricing-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 45px 30px;
+  text-align: center;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+}
+
+/* 🔥 Dynamic Gradient Header */
+.pricing-top {
+  background: linear-gradient(135deg, var(--color1), var(--color2));
+  padding: 25px;
+  border-radius: 15px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.pricing-top h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* 🔥 Price Circle */
+.price-badge {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color2), var(--color1));
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
+.per-text {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Features */
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+  text-align: left;
+}
+
+.pricing-features li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #444;
+  position: relative;
+  padding-left: 22px;
+}
+
+.pricing-features li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--color1);
+  font-weight: bold;
+}
+
+/* Button */
+.pricing-btn a {
+  display: inline-block;
+  padding: 13px 35px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--color1), var(--color2));
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.pricing-btn a:hover {
+  transform: scale(1.07);
+}
+
+
+
+
+/* Hide Default Swiper Arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+/* Make container safe */
+.pricing-area .container {
+  position: relative;
+  overflow: visible;
+}
+
+/* Custom Navigation Buttons */
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 20;
+}
+
+/* Desktop Position */
+.custom-prev {
+  left: 0;
+}
+
+.custom-next {
+  right: 0;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* 🔥 MOBILE FIX */
+@media (max-width: 768px) {
+
+  .custom-prev,
+  .custom-next {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .custom-prev {
+    left: 5px;
+  }
+
+  .custom-next {
+    right: 5px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   CARD BASE
+========================= */
+
+.pricing-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.25s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.pricing-top {
+  padding: 26px 20px 14px;
+  position: relative;
+}
+
+.pricing-top h3 {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pricing-top::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 4px;
+  background: #ffffff;
+}
+
+/* =========================
+   PRICE SECTION
+========================= */
+
+.pricing-price {
+  padding: 18px 20px 10px;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.price-circle {
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-weight: 700;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.price-circle span {
+  font-size: 18px;
+}
+
+.price-pill {
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* =========================
+   FEATURES (ULTRA COMPACT)
+========================= */
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.pricing-features li {
+  padding: 4px 18px;
+  border-top: 1px solid #f3f3f3;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.2;
+}
+
+.pricing-features li::before {
+  content: "✔";
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.pricing-btn {
+  padding: 20px 0 30px;
+}
+
+.pricing-btn a {
+  display: inline-block;
+  padding: 10px 36px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+  border: 2px solid;
+}
+
+/* =========================
+   THEME 0 (PINK)
+========================= */
+
+.theme-0 .pricing-top {
+  background: linear-gradient(135deg, #c2188b, #6a1b9a);
+}
+
+.theme-0 .price-circle {
+  border: 2px solid #c2188b;
+  color: #c2188b;
+}
+
+.theme-0 .price-pill {
+  background: linear-gradient(135deg, #c2188b, #6a1b9a);
+}
+
+.theme-0 .pricing-btn a {
+  border-color: #c2188b;
+  color: #c2188b;
+}
+
+.theme-0 .pricing-btn a:hover {
+  background: linear-gradient(135deg, #c2188b, #6a1b9a);
+  color: #fff;
+}
+
+.theme-0 .pricing-features li::before {
+  color: #4caf50;
+}
+
+/* =========================
+   THEME 1 (BLUE)
+========================= */
+
+.theme-1 .pricing-top {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+}
+
+.theme-1 .price-circle {
+  border: 2px solid #1565c0;
+  color: #1565c0;
+}
+
+.theme-1 .price-pill {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+}
+
+.theme-1 .pricing-btn a {
+  border-color: #1565c0;
+  color: #1565c0;
+}
+
+.theme-1 .pricing-btn a:hover {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+  color: #fff;
+}
+
+.theme-1 .pricing-features li::before {
+  color: #4caf50;
+}
+
+/* =========================
+   THEME 2 (GREEN)
+========================= */
+
+.theme-2 .pricing-top {
+  background: linear-gradient(135deg, #7cb342, #33691e);
+}
+
+.theme-2 .price-circle {
+  border: 2px solid #7cb342;
+  color: #7cb342;
+}
+
+.theme-2 .price-pill {
+  background: linear-gradient(135deg, #7cb342, #33691e);
+}
+
+.theme-2 .pricing-btn a {
+  border-color: #7cb342;
+  color: #7cb342;
+}
+
+.theme-2 .pricing-btn a:hover {
+  background: linear-gradient(135deg, #7cb342, #33691e);
+  color: #fff;
+}
+
+.theme-2 .pricing-features li::before {
+  color: #4caf50;
+}
+
+
+
+/* Remove all shadows */
+
+.pricing-card {
+  box-shadow: none !important;
+}
+
+.pricing-card:hover {
+  box-shadow: none !important;
+  transform: translateY(-6px);
+
+}
+
+.swiper-slide {
+  box-shadow: none !important;
+}
+
+.pricing-area,
+.container {
+  box-shadow: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =============================
+   PORTFOLIO PREMIUM UI
+============================= */
+
+.rp-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.rp-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 65px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+
+.rp-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.rp-img-wrap img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.rp-card:hover img {
+  transform: scale(1.08);
+}
+
+/* GRADIENT OVERLAY */
+
+.rp-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.1)
+  );
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.rp-card:hover .rp-gradient {
+  opacity: 1;
+}
+
+/* VIEW BUTTON */
+
+.rp-view-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: #ff6b2c;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.rp-card:hover .rp-view-btn {
+  opacity: 1;
+}
+
+/* CATEGORY BADGE */
+
+.rp-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* BODY */
+
+.rp-body {
+  padding: 22px;
+}
+
+.rp-body h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.rp-body h3 a {
+  color: #111;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.rp-body h3 a:hover {
+  color: #ff6b2c;
+}
+
+.rp-body p {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+/* NO IMAGE */
+
+.rp-no-img {
+  height: 260px;
+  background: #f4f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .rp-img-wrap img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .rp-card {
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================
+   TEAM SECTION PREMIUM STYLE
+============================== */
+
+.scientist-area {
+  background: #f8f9fb;
+}
+
+/* GRID */
+.team-grid {
+  justify-content: center;
+}
+
+/* ================= CARD ================= */
+
+.team-card {
+  background: linear-gradient(145deg, #ffffff, #f3f5f9);
+  border-radius: 22px;
+  padding: 35px 25px 30px;
+  text-align: center;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #edf0f5;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.06);
+}
+
+/* ================= IMAGE ================= */
+
+.team-img-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.team-img-wrap img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+}
+
+.team-card:hover .team-img-wrap img {
+  transform: scale(1.05);
+}
+
+/* ================= SOCIAL ICONS ================= */
+
+.team-social {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.team-card:hover .team-social {
+  opacity: 1;
+  bottom: 0;
+}
+
+.team-social a {
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #444;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.team-social a:hover {
+  background: #ff6b2c;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ================= CONTENT ================= */
+
+.team-content h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.team-content p {
+  font-size: 14px;
+  color: #ff6b2c;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .team-card {
+    padding: 30px 20px;
+  }
+
+  .team-img-wrap img {
+    width: 100px;
+    height: 100px;
+  }
+}

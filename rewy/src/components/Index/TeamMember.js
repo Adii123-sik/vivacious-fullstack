@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import starIcon from "../../images/star-icon.png";
 import { getTeamMembers } from "../../utils/api";
-import { API_BASE_URL} from "../../config/apiConfig";
+import { API_BASE_URL } from "../../config/apiConfig";
 
 const TeamMember = () => {
   const [team, setTeam] = useState([]);
@@ -33,56 +33,51 @@ const TeamMember = () => {
           </p>
         </div>
 
-        <div className="row">
+        <div className="row team-grid">
           {team.map((m) => (
-            <div key={m.id} className="col-lg-3 col-sm-6">
-              <div className="single-scientist-item-box">
-                <div className="image">
+            <div key={m.id} className="col-lg-3 col-md-4 col-sm-6">
+              <div className="team-card">
+
+                <div className="team-img-wrap">
                   <img
                     src={m.image}
                     alt={m.name}
                   />
 
-                  <ul className="social">
+                  <div className="team-social">
                     {m.facebook && (
-                      <li>
-                        <a href={m.facebook} target="_blank" rel="noreferrer">
-                          <i className="bx bxl-facebook"></i>
-                        </a>
-                      </li>
+                      <a href={m.facebook} target="_blank" rel="noreferrer">
+                        <i className="bx bxl-facebook"></i>
+                      </a>
                     )}
                     {m.twitter && (
-                      <li>
-                        <a href={m.twitter} target="_blank" rel="noreferrer">
-                          <i className="bx bxl-twitter"></i>
-                        </a>
-                      </li>
+                      <a href={m.twitter} target="_blank" rel="noreferrer">
+                        <i className="bx bxl-twitter"></i>
+                      </a>
                     )}
                     {m.instagram && (
-                      <li>
-                        <a href={m.instagram} target="_blank" rel="noreferrer">
-                          <i className="bx bxl-instagram"></i>
-                        </a>
-                      </li>
+                      <a href={m.instagram} target="_blank" rel="noreferrer">
+                        <i className="bx bxl-instagram"></i>
+                      </a>
                     )}
                     {m.linkedin && (
-                      <li>
-                        <a href={m.linkedin} target="_blank" rel="noreferrer">
-                          <i className="bx bxl-linkedin"></i>
-                        </a>
-                      </li>
+                      <a href={m.linkedin} target="_blank" rel="noreferrer">
+                        <i className="bx bxl-linkedin"></i>
+                      </a>
                     )}
-                  </ul>
+                  </div>
                 </div>
 
-                <div className="content">
+                <div className="team-content">
                   <h3>{m.name}</h3>
-                  <span>{m.role}</span>
+                  <p>{m.role}</p>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

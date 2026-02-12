@@ -50,61 +50,54 @@ const RecentProjects = () => {
           )}
 
           {projects.map((project) => (
-            <div key={project.id} className="col-lg-4 col-md-6">
-              <div className="single-projects-box rp2-card">
-                <div className="image rp2-image">
-                  {project.image ? (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  ) : (
-                    <div className="rp2-no-image">No Image</div>
-                  )}
+  <div key={project.id} className="col-lg-4 col-md-6">
+    <div className="rp-card">
 
-                  <div className="rp2-overlay" aria-hidden="true" />
+      <div className="rp-img-wrap">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+          />
+        ) : (
+          <div className="rp-no-img">No Image</div>
+        )}
 
-                  {project.website_link && (
-                    <a
-                      className="link-btn rp2-btn"
-                      href={project.website_link}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${project.title} website`}
-                    >
-                      <i className="bx bx-plus"></i>
-                    </a>
-                  )}
+        <div className="rp-gradient"></div>
 
-                  <div className="rp2-pill">
-                    {project.category}
-                  </div>
-                </div>
+        {project.website_link && (
+          <a
+            href={project.website_link}
+            target="_blank"
+            rel="noreferrer"
+            className="rp-view-btn"
+          >
+            View Project →
+          </a>
+        )}
+      </div>
 
-                <div className="content rp2-content">
-                  <h3 className="rp2-h3">
-                    {project.website_link ? (
-                      <a
-                        href={project.website_link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {project.title}
-                      </a>
-                    ) : (
-                      project.title
-                    )}
-                  </h3>
+      <div className="rp-body">
+        <h3>
+          {project.website_link ? (
+            <a
+              href={project.website_link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {project.title}
+            </a>
+          ) : (
+            project.title
+          )}
+        </h3>
+      </div>
 
-                  <span className="rp2-span">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
+    </div>
+  </div>
+))}
+
         </div>
       </div>
     </section>

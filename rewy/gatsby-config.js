@@ -16,10 +16,10 @@ require("dotenv").config({
  */
 module.exports = {
   siteMetadata: {
-    title: `Rewy - Gatsby React IT Startup & Technology Template`,
-    description: `Gatsby React IT Startup & Technology Template`,
-    author: `@envytheme`,
-    siteUrl: `https://rewy-gatsby.envytheme.com`,
+    title: `Vivacious Solutions`,
+    description: `IT & Digital Marketing Company`,
+    author: `Vivacious Solutions`,
+    siteUrl: `https://www.vivacioussolutions.in`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -36,15 +36,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Vivacious Solutions`,
+        short_name: `Vivacious`,
         start_url: `/`,
         background_color: `#663399`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `./src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
   ],

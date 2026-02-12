@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
 import starIcon from "../../images/star-icon.png";
-import "./Pricing.css";
-import { getPricingPlans } from "../../utils/api";
+import { getPricingPlans, getSettings } from "../../utils/api";
 
 /* ✅ GATSBY SAFE SWIPER */
 import SwiperCore, { Autoplay, Navigation } from "swiper";
@@ -15,26 +13,33 @@ SwiperCore.use([Autoplay, Navigation]);
 
 const Pricing = () => {
   const [pricing, setPricing] = useState([]);
+  const [settings, setSettings] = useState(null);
 
   useEffect(() => {
-    const loadPricing = async () => {
+    const loadData = async () => {
       try {
-        const data = await getPricingPlans();
-        setPricing(Array.isArray(data) ? data : []);
+        const plans = await getPricingPlans();
+        setPricing(Array.isArray(plans) ? plans : []);
+
+        const settingData = await getSettings();
+        setSettings(settingData);
       } catch (err) {
-        console.error("PRICING LOAD ERROR ❌", err);
+        console.error("❌ ERROR:", err);
       }
     };
 
-    loadPricing();
+    loadData();
   }, []);
 
+  // 🔥 Clean WhatsApp number (remove +, spaces, etc.)
+  const formatPhone = (phone) => {
+    if (!phone) return "";
+    return phone.replace(/\D/g, "");
+  };
+
   return (
-    <section
-      style={{ backgroundColor: "#fff" }}
-      className="pricing-area pt-100 pb-70 bg-f4f7fe"
-    >
-      <div className="container">
+    <section className="pricing-area pt-100 pb-70">
+      <div className="container" style={{ position: "relative" }}>
         <div className="section-title">
           <span className="sub-title">
             <img src={starIcon} alt="pricing" />
@@ -48,51 +53,75 @@ const Pricing = () => {
         </div>
 
         {pricing.length > 0 ? (
-          <Swiper
-            navigation
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            spaceBetween={30}
-            breakpoints={{
-              0: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
-            {pricing.map((plan) => (
-              <SwiperSlide key={plan.id}>
-                <div className="single-pricing-box">
-                  <div className="pricing-header">
-                    <h3>{plan.plan_name}</h3>
-                  </div>
+          <>
+            <Swiper
+              navigation={{
+                nextEl: ".custom-next",
+                prevEl: ".custom-prev",
+              }}
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              spaceBetween={30}
+              breakpoints={{
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+            >
+              {pricing.map((plan, index) => (
+                <SwiperSlide key={plan.id}>
+                  <div className={`pricing-card theme-${index % 3}`}>
 
-                  <div className="price">
-                    <span>{plan.currency || "₹"}</span> {plan.price}
-                  </div>
+                    <div className="pricing-top">
+                      <h3>{plan.plan_name}</h3>
+                    </div>
 
-                  <ul className="pricing-features">
-                    {plan.features
-                      ?.split("\n")
-                      .map((f, i) => (
-                        <li key={i}>
-                          <i className="bx bxs-badge-check"></i> {f}
-                        </li>
-                      ))}
-                  </ul>
+                    <div className="pricing-price">
+                      <div className="price-row">
+                        <div className="price-circle">
+                          <span>{plan.currency || "₹"}</span>
+                          {plan.price}
+                        </div>
+                        <div className="price-pill">
+                          PER PROJECT
+                        </div>
+                      </div>
+                    </div>
 
-                  <div className="btn-box">
-                    <Link
-                      to={`/pricing/${plan.service_slug}`}
-                      className="default-btn"
-                    >
-                      <i className="flaticon-tick"></i>
-                      Select the Plan
-                      <span></span>
-                    </Link>
+                    <ul className="pricing-features">
+                      {plan.features
+                        ?.split("\n")
+                        .filter((f) => f.trim() !== "")
+                        .map((f, i) => (
+                          <li key={i}>{f}</li>
+                        ))}
+                    </ul>
+
+                    <div className="pricing-btn">
+                      {settings?.whatsapp_number ? (
+                        <a
+                          href={`https://wa.me/${formatPhone(
+                            settings.whatsapp_number
+                          )}?text=${encodeURIComponent(
+                            `Hi Vivacious Team, I am interested in your ${plan.plan_name} plan priced at ₹${plan.price}. Please share more details.`
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Buy Now
+                        </a>
+                      ) : (
+                        <span>Loading...</span>
+                      )}
+                    </div>
+
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="custom-prev">&#10094;</div>
+            <div className="custom-next">&#10095;</div>
+          </>
         ) : (
           <p style={{ textAlign: "center" }}>
             No pricing plans found

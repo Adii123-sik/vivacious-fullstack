@@ -83,7 +83,7 @@ const FloatingContact = () => {
       aria-label="Contact shortcuts"
       style={{
         position: "fixed",
-        bottom: "30px",
+        bottom: "100px",
         right: "20px",
         zIndex: 99999,
         pointerEvents: "auto"

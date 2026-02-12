@@ -1,51 +1,89 @@
 import React, { useEffect, useState } from "react";
-import { getPricingPlans } from "../../utils/api";
+import { getPricingPlans, getSettings } from "../../utils/api";
 
 const ServicePricing = ({ serviceSlug }) => {
   const [plans, setPlans] = useState([]);
+  const [settings, setSettings] = useState(null);
 
   useEffect(() => {
     if (!serviceSlug) return;
 
-    const loadPlans = async () => {
+    const loadData = async () => {
       try {
         const data = await getPricingPlans();
-
         const filtered = data.filter(
           (plan) => plan.service_slug === serviceSlug
         );
-
         setPlans(filtered);
+
+        const settingData = await getSettings();
+        setSettings(settingData);
       } catch (err) {
         console.error("SERVICE PRICING ERROR ❌", err);
       }
     };
 
-    loadPlans();
+    loadData();
   }, [serviceSlug]);
 
+  // Clean WhatsApp number
+  const formatPhone = (phone) => {
+    if (!phone) return "";
+    return phone.replace(/\D/g, "");
+  };
+
   return (
-    <section className="pricing-area pt-100 pb-70 bg-f4f7fe">
+    <section className="pricing-area pt-100 pb-70">
       <div className="container">
         <div className="row justify-content-center">
-          {plans.map((plan) => (
-            <div key={plan.id} className="col-lg-4 col-md-6">
-              <div className="single-pricing-box">
-                <div className="pricing-header">
+
+          {plans.map((plan, index) => (
+            <div key={plan.id} className="col-lg-4 col-md-6 mb-4">
+              <div className={`pricing-card theme-${index % 3}`}>
+
+                <div className="pricing-top">
                   <h3>{plan.plan_name}</h3>
                 </div>
 
-                <div className="price">
-                  <span>{plan.currency || "₹"}</span> {plan.price}
+                <div className="pricing-price">
+                  <div className="price-row">
+                    <div className="price-circle">
+                      <span>{plan.currency || "₹"}</span>
+                      {plan.price}
+                    </div>
+                    <div className="price-pill">
+                      PER PROJECT
+                    </div>
+                  </div>
                 </div>
 
                 <ul className="pricing-features">
-                  {plan.features?.split("\n").map((feature, i) => (
-                    <li key={i}>
-                      <i className="bx bxs-badge-check"></i> {feature}
-                    </li>
-                  ))}
+                  {plan.features
+                    ?.split("\n")
+                    .filter((f) => f.trim() !== "")
+                    .map((feature, i) => (
+                      <li key={i}>{feature}</li>
+                    ))}
                 </ul>
+
+                <div className="pricing-btn">
+                  {settings?.whatsapp_number ? (
+                    <a
+                      href={`https://wa.me/${formatPhone(
+                        settings.whatsapp_number
+                      )}?text=${encodeURIComponent(
+                        `Hi Vivacious Team, I am interested in your ${plan.plan_name} plan priced at ₹${plan.price}. Please share more details.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Buy Now
+                    </a>
+                  ) : (
+                    <span>Loading...</span>
+                  )}
+                </div>
+
               </div>
             </div>
           ))}
@@ -55,6 +93,7 @@ const ServicePricing = ({ serviceSlug }) => {
               No pricing plans found
             </p>
           )}
+
         </div>
       </div>
     </section>
