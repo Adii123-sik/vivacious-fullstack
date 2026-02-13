@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import starIcon from "../../images/star-icon.png";
 import { getServices } from "../../utils/api";
 
-/* CATEGORY → ICON CLASS MAP (same UI colors) */
+/* CATEGORY → ICON COLOR CLASS MAP */
 const iconClassByCategory = (category = "") => {
   switch (category.toLowerCase()) {
     case "growth":
@@ -12,36 +12,38 @@ const iconClassByCategory = (category = "") => {
       return "vv-card__icon--web";
     case "seo":
       return "vv-card__icon--seo";
+    case "ui/ux":
+      return "vv-card__icon--app";
+    case "local":
+      return "vv-card__icon--local";
+    case "marketing":
+      return "vv-card__icon--sms";
+    case "infrastructure":
+      return "vv-card__icon--hosting";
+    case "automation":
+      return "vv-card__icon--email";
+    case "roi":
+      return "vv-card__icon--affiliate";
     default:
-      return "vv-card__icon--social";
+      return "vv-card__icon--default";
   }
 };
 
-const OurServices = () => {
+const ServicesOne = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    const loadServices = async () => {
-      try {
-        const data = await getServices();
-
-        // ✅ ONLY ID 1,2,3
-        const filtered = data.filter(service =>
-          [1, 2, 3].includes(Number(service.id))
-        );
-
-        setServices(filtered);
-      } catch (err) {
-        console.error("Failed to load services", err);
-      }
+    const load = async () => {
+      const data = await getServices();
+      setServices(data || []);
     };
-
-    loadServices();
+    load();
   }, []);
 
   return (
     <section className="solutions-area pb-70 pt-100 vv-services">
       <div className="container">
+
         {/* TITLE */}
         <div className="section-title vv-services__title">
           <span className="sub-title">
@@ -58,13 +60,14 @@ const OurServices = () => {
 
         {/* SERVICES */}
         <div className="row">
-          {services.map(service => (
+          {services.slice(0, 6).map((service) => (
             <div
               key={service.id}
               className="col-lg-4 col-md-6 col-sm-12"
             >
               <div className="vv-card">
                 <div className="vv-card__top">
+
                   <div
                     className={`vv-card__icon ${iconClassByCategory(
                       service.category
@@ -88,7 +91,7 @@ const OurServices = () => {
 
                 <div className="vv-card__actions">
                   <Link
-                    to={`/services/service-details/${service.id}/`}
+                    to={`/services/service-details/${service.id}`}
                     className="vv-btn vv-btn--primary"
                   >
                     View Details
@@ -101,6 +104,7 @@ const OurServices = () => {
                     All Services
                   </Link>
                 </div>
+
               </div>
             </div>
           ))}
@@ -111,9 +115,10 @@ const OurServices = () => {
             </div>
           )}
         </div>
+
       </div>
     </section>
   );
 };
 
-export default OurServices;
+export default ServicesOne;

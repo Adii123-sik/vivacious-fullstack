@@ -6,6 +6,7 @@ import PageBanner from "../../components/Common/PageBanner"
 import ServicesOne from "../../components/Services/ServicesOne"
 import StartProject from "../../components/Common/StartProject"
 import Footer from "../../components/_App/Footer"
+import Funfact from "../../components/Index/FunFacts"
 
 const ServicesPage = () => {
   return (
@@ -20,6 +21,8 @@ const ServicesPage = () => {
       />
 
       <ServicesOne />
+      <Funfact/>
+
 
       <StartProject />
 

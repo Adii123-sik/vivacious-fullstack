@@ -32,13 +32,16 @@
       {/* <OurFeatures /> */}
 
       <WhyChooseUs />
+      <Pricing />
       <RecentProjects />
       
 
       
       <Testimonials />
 
-      <Pricing />
+      <Partner />
+
+      
       <FunFacts />
 
       
@@ -47,7 +50,7 @@
 
       
 
-      <Partner />
+      
       
       <TeamMember />
 
