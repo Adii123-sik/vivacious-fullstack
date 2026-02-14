@@ -39,7 +39,7 @@ const Partner = () => {
                   alt={partner.name}
                   className="partner-logo"
                 />
-                <span>{partner.name}</span>
+                
               </div>
             ))}
           </div>

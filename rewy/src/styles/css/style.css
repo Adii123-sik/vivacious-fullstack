@@ -12878,14 +12878,14 @@ Go Top CSS
 /* ================= LOGO STYLE ================= */
 
 .partner-box {
-  width: 360px;              /* 🔥 Bigger width */
+  width: 450px;              /* 🔥 Bigger width */
   margin: 0 20px;
   text-align: center;
 }
 
 .partner-logo {
- height: 250px;
- width: 250px;
+ height: 400px;
+ width: 400px;
   object-fit: contain;
 
   filter: none;              /* 🔥 No grayscale */
