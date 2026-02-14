@@ -75,16 +75,26 @@ const RecentProjects = () => {
   /* ================= Slider Logic ================= */
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev + 1 > projects.length - visibleCount ? 0 : prev + 1
-    );
-  };
+  setCurrentIndex((prev) => {
+    const maxIndex = projects.length - visibleCount;
+    return prev >= maxIndex ? 0 : prev + 1;
+  });
+};
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev - 1 < 0 ? projects.length - visibleCount : prev - 1
-    );
-  };
+const prevSlide = () => {
+  setCurrentIndex((prev) => {
+    const maxIndex = projects.length - visibleCount;
+    return prev <= 0 ? maxIndex : prev - 1;
+  });
+};
+
+
+ useEffect(() => {
+  if (currentIndex > projects.length - visibleCount) {
+    setCurrentIndex(0);
+  }
+}, [visibleCount, projects]);
+
 
   const startAutoSlide = () => {
     if (projects.length <= visibleCount) return;

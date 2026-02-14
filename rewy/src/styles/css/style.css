@@ -12638,3 +12638,368 @@ Go Top CSS
     font-size: 16px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= PRICING CARD FIX ================= */
+
+.pricing-card {
+  border: 2px solid #6f6060;
+  border-radius: 14px;
+  padding: 30px 25px;
+  background: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Equal height slides */
+.swiper-slide {
+  display: flex;
+}
+
+.swiper-slide .pricing-card {
+  flex: 1;
+}
+
+/* Push button to bottom */
+.pricing-features {
+  flex-grow: 1;
+}
+
+/* Keep your existing button style */
+.pricing-btn {
+  margin-top: auto;
+}
+
+/* Make Swiper wrapper stretch items */
+.swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+/* Make each slide full height */
+.swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
+
+/* Make card fill slide */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+/* Push features to grow */
+.pricing-features {
+  flex-grow: 1;
+}
+
+/* Keep button bottom */
+.pricing-btn {
+  margin-top: auto;
+}
+
+
+/* ===== Remove Extra Side Gap ===== */
+
+.pricing-area .container {
+  overflow: hidden !important;
+}
+
+.pricing-area .swiper {
+  overflow: hidden !important;
+}
+
+.pricing-area .swiper-wrapper {
+  overflow: visible !important;
+}
+
+.pricing-area .swiper-slide {
+  display: flex !important;
+  justify-content: center !important;
+  height: auto !important;
+}
+
+/* ===== Exact 3 Cards Fit ===== */
+
+@media (min-width: 1024px) {
+  .pricing-area .swiper-slide {
+    width: calc((100% - 40px) / 3) !important;
+  }
+}
+
+/* ===== Card Fix ===== */
+
+.pricing-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #e6e6e6;
+  border-radius: 26px;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+/* Fix top glow / cut issue */
+.pricing-card::before {
+  display: none !important;
+}
+
+/* Keep equal height */
+.pricing-features {
+  flex-grow: 1;
+}
+
+.pricing-btn {
+  margin-top: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= SECTION ================= */
+
+.brand-section {
+  padding: 120px 0;
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  overflow: hidden;
+  text-align: center;
+}
+
+.brand-heading h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.brand-heading p {
+  color: #6b7280;
+  margin-bottom: 60px;
+}
+
+/* ================= MARQUEE ================= */
+
+.brand-marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.brand-track {
+  display: flex;
+  width: max-content;
+  animation: scrollBrand 25s linear infinite;
+}
+
+@keyframes scrollBrand {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================= LOGOS ================= */
+
+.brand-item {
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  max-height: 60px;
+  max-width: 160px;
+  object-fit: contain;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
+.brand-item:hover .brand-logo {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .brand-heading h2 {
+    font-size: 26px;
+  }
+
+  .brand-item {
+    padding: 0 30px;
+  }
+
+  .brand-logo {
+    max-height: 40px;
+  }
+}
+
+
+
+
+.sub-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  color: #ff4d2e;   /* orange tone */
+
+  margin-bottom: 15px;
+}
+
+/* icon size */
+.sub-title img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+/* ================= SECTION ================= */
+
+.partners-section {
+  padding: 120px 0;
+  background: #f8f9fb;
+  text-align: center;
+  overflow: hidden;
+}
+
+.partners-heading h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.partners-heading p {
+  color: #777;
+  margin-bottom: 50px;
+}
+
+/* ================= MARQUEE ================= */
+
+.partners-marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.partners-track {
+  display: flex;
+  width: max-content;
+  animation: scrollPartners 30s linear infinite;
+}
+
+/* Continuous Right → Left */
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================= LOGO GRID STYLE ================= */
+
+.partner-box {
+  width: 180px;
+  margin: 0 40px;
+  text-align: center;
+}
+
+.partner-logo {
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: 0.3s ease;
+}
+
+.partner-box span {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Hover effect */
+.partner-box:hover .partner-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
