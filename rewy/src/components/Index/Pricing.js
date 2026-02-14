@@ -38,7 +38,7 @@ const Pricing = () => {
   };
 
   return (
-    <section className="pricing-area pt-100 pb-70">
+    <section className="pricing-area pt-100 pb-30">
       <div className="container" style={{ position: "relative" }}>
         <div className="section-title">
           <span className="sub-title">

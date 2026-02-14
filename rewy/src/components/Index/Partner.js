@@ -9,7 +9,7 @@ const Partner = () => {
       try {
         const data = await getPartners();
         if (Array.isArray(data)) {
-          setPartners([...data, ...data]); // duplicate for smooth loop
+          setPartners([...data, ...data]); // duplicate for infinite loop
         }
       } catch (err) {
         console.error("PARTNER LOAD ERROR ❌", err);
@@ -23,28 +23,28 @@ const Partner = () => {
 
   return (
     <section className="partners-section">
-      <div className="container">
-
+      <div className="partners-container">
         <div className="partners-heading">
-          <h2>Some of our Valuable Clients</h2>
-          <p>Trusted by forward-thinking brands that believe in innovation and results.</p>
+          <h2>Trusted by Industry Leaders</h2>
+          <p>
+            We collaborate with ambitious brands that push boundaries and
+            believe in innovation.
+          </p>
         </div>
 
         <div className="partners-marquee">
           <div className="partners-track">
             {partners.map((partner, index) => (
-              <div key={index} className="partner-box">
+              <div key={index} className="partner-card">
                 <img
                   src={partner.logo}
                   alt={partner.name}
                   className="partner-logo"
                 />
-                
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

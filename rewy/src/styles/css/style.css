@@ -13108,12 +13108,12 @@ Go Top CSS
 }
 
 .team-content h3 {
-  font-size: 15px !important;
+  font-size: 20px !important;
   margin: 0 !important;
 }
 
 .team-content p {
-  font-size: 12px !important;
+  font-size: 15px !important;
   margin: 3px 0 0 !important;
 }
 
@@ -13193,4 +13193,216 @@ Go Top CSS
     padding: 15px !important;
   }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== SECTION ===== */
+.partners-section {
+  padding: 30px 0 !important;
+  background: linear-gradient(180deg, #0f172a, #111827) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* ===== CONTAINER ===== */
+.partners-container {
+  width: 90% !important;
+  max-width: 1400px !important;
+  margin: auto !important;
+  text-align: center !important;
+}
+
+/* ===== HEADING ===== */
+.partners-heading h2 {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 15px !important;
+  letter-spacing: -0.5px !important;
+}
+
+.partners-heading p {
+  font-size: 18px !important;
+  color: #9ca3af !important;
+  max-width: 650px !important;
+  margin: 0 auto 70px auto !important;
+  line-height: 1.6 !important;
+}
+
+/* ===== MARQUEE ===== */
+.partners-marquee {
+  width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* ===== TRACK ANIMATION ===== */
+.partners-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: scroll 25s linear infinite !important;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== CARD ===== */
+.partner-card {
+  min-width: 150px !important;
+  height: 80px !important;
+  margin: 0 0px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.4s ease !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.partner-card:hover {
+  transform: translateY(-10px) scale(1.05) !important;
+ 
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ===== LOGO ===== */
+.partner-logo {
+  max-width: 140px !important;
+  max-height: 60px !important;
+  object-fit: contain !important;
+  filter: grayscale(100%) brightness(1.2) !important;
+  opacity: 0.8 !important;
+  transition: all 0.4s ease !important;
+}
+
+
+/* ===== CARD UPGRADE ===== */
+.partner-card {
+  min-width: 200px !important;
+  height: 110px !important;
+  margin: 0 20px !important;
+  background: #ffffff !important;   /* white background for clarity */
+  border-radius: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  transition: all 0.4s ease !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.partner-card:hover {
+  transform: translateY(-8px) scale(1.05) !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25) !important;
+  
+}
+
+/* ===== LOGO FIX ===== */
+.partner-logo {
+  
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: contain !important;
+
+  /* REMOVE dull effects */
+  filter: none !important;
+  opacity: 1 !important;
+
+  /* Sharp rendering */
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+
+  transition: transform 0.3s ease !important;
+}
+
+.partner-card:hover .partner-logo {
+  transform: scale(1.08) !important;
+}
+
+
+
+/* ===== CARD SIZE (thoda aur balanced) ===== */
+.partner-card {
+  min-width: 200px !important;
+  height: 100px !important;
+  padding: 25px !important;
+}
+
+/* ===== LOGO BIGGER VERSION ===== */
+.partner-logo {
+  width: 100% !important;      /* card ka 80% cover kare */
+  height: auto !important;
+  max-height: 150px !important; 
+  object-fit: contain !important;
+
+  filter: none !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease !important;
+}
+
+.partner-card:hover .partner-logo {
+  transform: scale(1.05) !important;
 }

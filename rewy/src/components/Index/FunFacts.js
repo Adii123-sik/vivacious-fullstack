@@ -98,7 +98,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="contact-wrapper">
+    <section className="pt-10 pb-0  contact-wrapper">
       <div className="container">
         <div className="contact-grid">
 

@@ -24,7 +24,7 @@ const Footer = () => {
   if (!settings) return null
 
   return (
-    <footer className="footer-area bg-color">
+    <footer className="footer-area bg-color pt-10">
       <div className="container">
         <div className="row">
 

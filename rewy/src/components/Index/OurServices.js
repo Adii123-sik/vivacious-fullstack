@@ -41,7 +41,7 @@ const ServicesOne = () => {
   }, []);
 
   return (
-    <section className="solutions-area pb-70 pt-100 vv-services">
+    <section className="solutions-area pb-30 pt-5 pt-100 vv-services">
       <div className="container">
 
         {/* TITLE */}

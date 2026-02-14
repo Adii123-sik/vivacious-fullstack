@@ -6,7 +6,7 @@ import shape from "../../images/shape/circle-shape1.png"
 const ProjectStartArea = () => {
   return (
     <>
-      <div className="project-start-area ptb-100">
+      <div className="project-start-area ptb-10">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12">

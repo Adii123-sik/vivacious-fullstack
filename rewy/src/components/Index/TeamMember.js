@@ -20,7 +20,7 @@ const TeamMember = () => {
   };
 
   return (
-    <section className="scientist-area pt-100 pb-70">
+    <section className="scientist-area pt-100 pb-30">
       <div className="container">
         <div className="section-title">
           <span className="sub-title">
