@@ -12862,7 +12862,7 @@ Go Top CSS
 .partners-track {
   display: flex;
   width: max-content;
-  animation: scrollPartners 45s linear infinite;  /* 🔥 slower speed */
+  animation: scrollPartners 80s linear infinite;  /* 🔥 slower speed */
 }
 
 /* Continuous Right → Left */
@@ -12878,14 +12878,14 @@ Go Top CSS
 /* ================= LOGO STYLE ================= */
 
 .partner-box {
-  width: 260px;              /* 🔥 Bigger width */
-  margin: 0 60px;
+  width: 360px;              /* 🔥 Bigger width */
+  margin: 0 20px;
   text-align: center;
 }
 
 .partner-logo {
-  max-height: 110px;          /* 🔥 Bigger logo */
-  max-width: 240px;
+ height: 250px;
+ width: 250px;
   object-fit: contain;
 
   filter: none;              /* 🔥 No grayscale */
