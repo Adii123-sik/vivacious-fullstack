@@ -163,9 +163,9 @@ const RecentProjects = () => {
                           href={project.website_link}
                           target="_blank"
                           rel="noreferrer"
-                          className={`rp-hover-btn ${
-                            showButtons ? "animate-in" : ""
-                          }`}
+                          className= {`rp-hover-btn ${
+                            showButtons ? "animate-in" : "" 
+                          } button-view`}
                         >
                           View Project →
                         </a>
@@ -186,7 +186,7 @@ const RecentProjects = () => {
           </button>
         </div>
       </div>
-    </section>
+    </section>  
   );
 };
 

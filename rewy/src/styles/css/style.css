@@ -12015,7 +12015,7 @@ Go Top CSS
   left: 50%;
   transform: translateX(-50%) translateY(30px);
   background: #ff5a5f;
-  color: #fff;
+  color: white;
   padding: 10px 22px;
   border-radius: 30px;
   text-decoration: none;
@@ -12027,6 +12027,10 @@ Go Top CSS
 .rp-card:hover .rp-hover-btn {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+.button-view:hover{
+  background-color: white;
+  color: black;
 }
 
 /* ===== Body ===== */
@@ -12118,192 +12122,6 @@ Go Top CSS
 
 
 
-/* ===== Section ===== */
-
-.recent-projects {
-  padding: 100px 0 70px;
-  background: #f9fafc;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  margin-top: 15px;
-}
-
-/* ===== Slider ===== */
-
-.slider-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.slider-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.7s ease-in-out;
-}
-
-.slide-item {
-  padding: 15px;
-  box-sizing: border-box;
-}
-
-/* ===== Card ===== */
-
-.rp-card {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.4s ease;
-  cursor: pointer;
-}
-
-.rp-card:hover {
-  transform: translateY(-6px);
-}
-
-/* ===== Image ===== */
-
-.rp-img-wrap {
-  position: relative;
-  overflow: hidden;
-}
-
-.rp-img-wrap img {
-  width: 100%;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.rp-card:hover img {
-  transform: scale(1.08);
-}
-
-/* ===== Button ===== */
-
-.rp-hover-btn {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%) translateY(30px);
-  background: #ff5a5f;
-  color: #fff;
-  padding: 10px 22px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 500;
-  opacity: 0;
-  transition: all 0.4s ease;
-}
-
-/* Desktop hover */
-@media (min-width: 769px) {
-  .rp-card:hover .rp-hover-btn {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* Mobile click active */
-@media (max-width: 768px) {
-  .rp-card.active .rp-hover-btn {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-.rp-hover-btn:hover {
-  background: #ffffff;
-  color: #000000;
-}
-
-/* ===== Body ===== */
-
-.rp-body {
-  padding: 20px;
-  text-align: center;
-}
-
-.rp-body h3 {
-  font-size: 18px;
-  margin: 0;
-}
-
-/* ===== Arrows ===== */
-
-.slider-btn {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.55);
-  border: none;
-  color: #fff;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 22px;
-  transition: 0.3s ease;
-  z-index: 10;
-}
-
-.slider-btn:hover {
-  background: #ff5a5f;
-}
-
-.slider-btn.left {
-  left: 10px;
-}
-
-.slider-btn.right {
-  right: 10px;
-}
-
-/* ===== Responsive ===== */
-
-@media (min-width: 993px) {
-  .slide-item {
-    flex: 0 0 33.3333%;
-  }
-}
-
-@media (min-width: 577px) and (max-width: 992px) {
-  .slide-item {
-    flex: 0 0 50%;
-  }
-}
-
-@media (max-width: 576px) {
-  .slide-item {
-    flex: 0 0 100%;
-  }
-
-  .slider-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-  }
-}
-
-.loading {
-  text-align: center;
-}
-
-
-
-
-
-
 
 
 
@@ -12330,8 +12148,7 @@ Go Top CSS
 
 .why-content {
   padding: 20px 40px;
-   margin-top: -100px;   
-  
+  margin-top: -100px;
 }
 
 .why-content h2 {
@@ -12339,44 +12156,25 @@ Go Top CSS
   margin: 20px 0;
 }
 
-.why-list {
-  margin: 25px 0;
-  padding: 0;
-  list-style: none;
-}
-
-.why-list li {
-  margin-bottom: 12px;
-  position: relative;
-  padding-left: 22px;
-}
-
-.why-list li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #ff4d2e;
-}
-
 /* ================= COUNTER SECTION ================= */
 
 .counter-section {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-top: -60px;   /* clean spacing */
-  flex-wrap: wrap;
+  margin-top: -60px;
 }
 
-/* ================= COUNTER BOX ================= */
+/* ================= COMMON COUNTER BOX ================= */
 
-.counter-box {
-  width: 200px;        /* slightly smaller */
-  height: 140px;       /* balanced height */
+.counter-box,
+.counter-box-experience {
+  flex: 0 0 200px;
+  height: 140px;
   padding: 15px;
   border-radius: 18px;
   text-align: center;
-  background: #1e2a55;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -12386,76 +12184,66 @@ Go Top CSS
   transition: 0.3s ease;
 }
 
-.counter-box:nth-child(2) {
+/* Blue Boxes */
+.counter-box {
+  background: #1e2a55;
+}
+
+/* Orange Boxes */
+.counter-box:nth-child(2),
+.counter-box-experience {
   background: #ff4d2e;
 }
 
-.counter-box:hover {
+/* Hover */
+.counter-box:hover,
+.counter-box-experience:hover {
   transform: translateY(-8px);
 }
 
-/* ================= TEXT ================= */
-
-.counter-box h3 {
-  font-size: 30px;
+/* Text */
+.counter-box h3,
+.counter-box-experience h3 {
+  font-size: 28px;
   font-weight: 800;
-  margin-bottom: 5px;
+  margin: 0;
 }
 
-.counter-box p {
+.counter-box p,
+.counter-box-experience p {
   font-size: 16px;
-  margin: 0;
+  margin: 5px 0 0;
   color: #ffffff;
 }
 
 /* ================= TABLET ================= */
 
-@media (max-width: 1200px) {
-  .why-content {
-    margin-top: -60px;
-  }
-
-  .why-content h2 {
-    font-size: 38px;
-  }
-}
-
-/* ================= MOBILE ================= */
-
 @media (max-width: 992px) {
 
   .why-content {
     padding: 20px;
-    margin-top: 0;              /* remove negative shift */
+    margin-top: 0;
     text-align: center;
   }
 
   .why-content h2 {
-    font-size: 32px;            /* reduce heading */
-  }
-
-  .why-list li {
-    padding-left: 0;
-  }
-
-  .why-list li::before {
-    display: none;              /* clean look mobile */
+    font-size: 32px;
   }
 
   .counter-section {
-    flex-direction: column;
-    align-items: center;
     margin-top: 40px;
   }
 
-  .counter-box {
-    width: 90%;
-    height: 120px;
+  /* 1 per row */
+  .counter-box,
+  .counter-box-experience {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: 130px;
   }
-
 }
 
-/* ================= SMALL MOBILE ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 576px) {
 
@@ -12467,18 +12255,21 @@ Go Top CSS
     font-size: 26px;
   }
 
-  .counter-box {
-    height: 110px;
+  .counter-box,
+  .counter-box-experience {
+    height: 120px;
+    padding: 12px;
   }
 
-  .counter-box h3 {
-    font-size: 24px;
+  .counter-box h3,
+  .counter-box-experience h3 {
+    font-size: 22px;
   }
 
-  .counter-box p {
+  .counter-box p,
+  .counter-box-experience p {
     font-size: 14px;
   }
-
 }
 
 

@@ -99,7 +99,14 @@ const WhyChooseUs = () => {
               <h3>{item.label}+</h3>
               <p>{item.value}</p>
             </div>
+            
           ))}
+          <div className="counter-box-experience">
+              
+              <h3>15+ Year</h3>
+              <p>Experience</p>
+            </div>
+
         </div>
 
       </div>
