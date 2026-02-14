@@ -12754,13 +12754,7 @@ Go Top CSS
   height: auto !important;
 }
 
-/* ===== Exact 3 Cards Fit ===== */
 
-@media (min-width: 1024px) {
-  .pricing-area .swiper-slide {
-    width: calc((100% - 40px) / 3) !important;
-  }
-}
 
 /* ===== Card Fix ===== */
 
@@ -12770,7 +12764,7 @@ Go Top CSS
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 3px solid #e6e6e6;
+  border: 2px solid #e6e6e6;
   border-radius: 26px;
   background: #fff;
   position: relative;
@@ -12791,139 +12785,45 @@ Go Top CSS
   margin-top: auto;
 }
 
+/* ===== STRICT 3 CARD VIEW FIX ===== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ================= SECTION ================= */
-
-.brand-section {
-  padding: 120px 0;
-  background: linear-gradient(to bottom, #ffffff, #f8fafc);
-  overflow: hidden;
-  text-align: center;
+.pricing-area {
+  overflow-x: hidden !important;
 }
 
-.brand-heading h2 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 10px;
+.pricing-area .container {
+  overflow: hidden !important;
 }
 
-.brand-heading p {
-  color: #6b7280;
-  margin-bottom: 60px;
+.pricing-area .swiper {
+  overflow: hidden !important;
 }
 
-/* ================= MARQUEE ================= */
-
-.brand-marquee {
-  overflow: hidden;
-  position: relative;
+.pricing-area .swiper-wrapper {
+  box-sizing: border-box !important;
 }
 
-.brand-track {
-  display: flex;
-  width: max-content;
-  animation: scrollBrand 25s linear infinite;
-}
-
-@keyframes scrollBrand {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* ================= LOGOS ================= */
-
-.brand-item {
-  padding: 0 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.brand-logo {
-  max-height: 60px;
-  max-width: 160px;
-  object-fit: contain;
-  opacity: 0.5;
-  filter: grayscale(100%);
-  transition: all 0.4s ease;
-}
-
-.brand-item:hover .brand-logo {
-  opacity: 1;
-  filter: grayscale(0%);
-  transform: scale(1.1);
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-  .brand-heading h2 {
-    font-size: 26px;
-  }
-
-  .brand-item {
-    padding: 0 30px;
-  }
-
-  .brand-logo {
-    max-height: 40px;
-  }
+.pricing-area .swiper-slide {
+  box-sizing: border-box !important;
 }
 
 
 
 
-.sub-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
 
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
 
-  color: #ff4d2e;   /* orange tone */
 
-  margin-bottom: 15px;
-}
 
-/* icon size */
-.sub-title img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -12942,13 +12842,14 @@ Go Top CSS
 }
 
 .partners-heading h2 {
-  font-size: 32px;
+  font-size: 34px;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
 .partners-heading p {
-  color: #777;
-  margin-bottom: 50px;
+  color: #6b7280;
+  margin-bottom: 60px;
 }
 
 /* ================= MARQUEE ================= */
@@ -12961,7 +12862,7 @@ Go Top CSS
 .partners-track {
   display: flex;
   width: max-content;
-  animation: scrollPartners 30s linear infinite;
+  animation: scrollPartners 45s linear infinite;  /* 🔥 slower speed */
 }
 
 /* Continuous Right → Left */
@@ -12974,32 +12875,48 @@ Go Top CSS
   }
 }
 
-/* ================= LOGO GRID STYLE ================= */
+/* ================= LOGO STYLE ================= */
 
 .partner-box {
-  width: 180px;
-  margin: 0 40px;
+  width: 260px;              /* 🔥 Bigger width */
+  margin: 0 60px;
   text-align: center;
 }
 
 .partner-logo {
-  max-height: 60px;
+  max-height: 110px;          /* 🔥 Bigger logo */
+  max-width: 240px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.6;
-  transition: 0.3s ease;
+
+  filter: none;              /* 🔥 No grayscale */
+  opacity: 1;                /* 🔥 Full color */
+
+  transition: transform 0.3s ease;
+}
+
+/* Hover only scale (no color change) */
+.partner-box:hover .partner-logo {
+  transform: scale(1.08);
 }
 
 .partner-box span {
   display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
+  margin-top: 12px;
+  font-size: 15px;
+  color: #555;
 }
 
-/* Hover effect */
-.partner-box:hover .partner-logo {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.05);
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .partner-box {
+    width: 160px;
+    margin: 0 30px;
+  }
+
+  .partner-logo {
+    max-height: 60px;
+  }
+
 }

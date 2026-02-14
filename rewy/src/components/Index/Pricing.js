@@ -60,13 +60,17 @@ const Pricing = () => {
                 prevEl: ".custom-prev",
               }}
               autoplay={{ delay: 3500, disableOnInteraction: false }}
-              spaceBetween={30}
+              spaceBetween={24}
+              slidesPerGroup={3}   // 👈 ADD THIS
+              centeredSlides={false}
+              watchOverflow={true}
               breakpoints={{
-                0: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+                0: { slidesPerView: 1, slidesPerGroup: 1 },
+                768: { slidesPerView: 2, slidesPerGroup: 2 },
+                1024: { slidesPerView: 3, slidesPerGroup: 3 },
               }}
             >
+
               {pricing.map((plan, index) => (
                 <SwiperSlide key={plan.id}>
                   <div className={`pricing-card theme-${index % 3}`}>
