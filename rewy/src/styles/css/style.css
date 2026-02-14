@@ -12884,8 +12884,8 @@ Go Top CSS
 }
 
 .partner-logo {
- height: 400px;
- width: 400px;
+ height: 260px;
+ width: 260px;
   object-fit: contain;
 
   filter: none;              /* 🔥 No grayscale */
@@ -12911,12 +12911,286 @@ Go Top CSS
 @media (max-width: 768px) {
 
   .partner-box {
-    width: 160px;
-    margin: 0 30px;
+    width: 200px;
+    margin: 0 10px;
   }
 
   .partner-logo {
-    max-height: 60px;
+    height: 120px;
+    width: 120px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= TEAM SECTION ================= */
+
+.scientist-area {
+  background: #ffffff !important;
+}
+
+/* Remove old spacing interference */
+.team-grid {
+  margin-top: 40px !important;
+}
+
+/* ================= CARD ================= */
+
+.team-card {
+  text-align: center !important;
+  border: none !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  transition: 0.3s ease !important;
+}
+
+.team-card:hover {
+  transform: translateY(-8px) !important;
+}
+
+/* ================= IMAGE ================= */
+
+.team-img-wrap {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.team-img-wrap img {
+  width: 100% !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* ================= RED NAME BOX ================= */
+
+.team-content {
+  background: #ff3c2e !important;
+  color: #ffffff !important;
+  padding: 18px 15px !important;
+  border-radius: 0 0 30px 30px !important;
+  margin-top: -30px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.team-content h3 {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  color: #fff !important;
+}
+
+.team-content p {
+  font-size: 14px !important;
+  margin: 5px 0 0 !important;
+  color: #fff !important;
+}
+
+/* ================= SOCIAL ICONS ================= */
+
+.team-social {
+  position: absolute !important;
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 10px !important;
+}
+
+.team-social a {
+  width: 32px !important;
+  height: 32px !important;
+  background: #ffffff !important;
+  color: #ff3c2e !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  transition: 0.3s ease !important;
+}
+
+.team-social a:hover {
+  background: #ff3c2e !important;
+  color: #ffffff !important;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .team-img-wrap img {
+    height: 220px !important;
+  }
+}
+
+
+
+/* ================= FORCE 4 CARDS IN ONE ROW ================= */
+
+.team-grid {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  flex-wrap: nowrap !important;   /* 🔥 No wrap */
+  gap: 15px !important;           /* 🔥 Small gap */
+}
+
+/* Remove bootstrap column behavior */
+.team-grid > div {
+  flex: 0 0 23% !important;       /* 🔥 4 in one row */
+  max-width: 23% !important;
+  padding: 0 !important;
+}
+
+/* ================= CARD SIZE ================= */
+
+.team-card {
+  width: 100% !important;
+  text-align: center !important;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  padding-bottom: 15px !important;
+  transition: 0.3s ease !important;
+}
+
+.team-card:hover {
+  transform: translateY(-5px) !important;
+}
+
+/* ================= IMAGE ================= */
+
+.team-img-wrap img {
+  width: 100% !important;
+  height: 210px !important;   /* balanced height */
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* ================= RED BOX ================= */
+
+.team-content {
+  background: #ff3c2e !important;
+  color: #fff !important;
+  padding: 12px !important;
+  border-radius: 18px !important;
+  width: 85% !important;
+ margin: -15px auto 12px auto !important;   /* 🔥 Less overlap */
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.team-content h3 {
+  font-size: 15px !important;
+  margin: 0 !important;
+}
+
+.team-content p {
+  font-size: 12px !important;
+  margin: 3px 0 0 !important;
+}
+
+/* ================= SOCIAL ICONS ================= */
+
+.team-social {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 6px !important;
+}
+
+.team-social a {
+  width: 28px !important;
+  height: 28px !important;
+  background: #f3f3f3 !important;
+  color: #333 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+  transition: 0.3s ease !important;
+}
+
+.team-social a:hover {
+  background: #ff3c2e !important;
+  color: #fff !important;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 992px) {
+  .team-grid {
+    flex-wrap: wrap !important;
+  }
+
+  .team-grid > div {
+    flex: 0 0 48% !important;
+    max-width: 48% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .team-grid > div {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* ================= OVAL IMAGE FIX ================= */
+
+.team-img-wrap {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 25px 0 10px 0 !important;
+}
+
+.team-img-wrap img {
+  width: 85% !important;
+  height: auto !important;                 /* 🔥 remove fixed height */
+  aspect-ratio: 1 / 1;                     /* 🔥 perfect circle/oval */
+  object-fit: cover !important;
+  border-radius: 50% !important;           /* 🔥 oval shape */
+  background: #f1f1f1 !important;
+  padding: 20px !important;
+}
+
+/* ================= MOBILE SAFE ================= */
+
+@media (max-width: 768px) {
+
+  .team-img-wrap img {
+    width: 75% !important;
+    padding: 15px !important;
   }
 
 }
