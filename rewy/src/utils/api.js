@@ -132,3 +132,16 @@ export const getBlogById = async (id) => {
 };
 
 
+
+
+/* ================= OFFLINE SERVICES (PUBLIC) ================= */
+export const getOfflineServices = async () => {
+  try {
+    const res = await axios.get(`${API_BASE_URL}/api/offline-services`);
+    return res.data;
+  } catch (error) {
+    console.error("❌ OFFLINE SERVICES FETCH ERROR:", error);
+    return [];
+  }
+};
+

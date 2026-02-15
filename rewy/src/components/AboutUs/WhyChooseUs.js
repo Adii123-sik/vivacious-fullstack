@@ -64,18 +64,47 @@ const WhyChooseUs = () => {
 
               <p>{settings.meta_description}</p>
 
-              <ul className="why-list">
+              {/* FEATURES BOXES */}
+              <ul className="features-list">
                 {[
-                  settings.why_point4,
-                  settings.why_point5,
-                  settings.why_point6,
-                  settings.why_point7,
-                  settings.why_point8,
-                  settings.why_point9,
-                ].filter(Boolean).map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
+                  {
+                    title: settings.why_point4,
+                    desc: settings.why_desc4,
+                  },
+                  {
+                    title: settings.why_point5,
+                    desc: settings.why_desc5,
+                  },
+                  {
+                    title: settings.why_point6,
+                    desc: settings.why_desc6,
+                  },
+                  {
+                    title: settings.why_point7,
+                    desc: settings.why_desc7,
+                  },
+                  {
+                    title: settings.why_point8,
+                    desc: settings.why_desc8,
+                  },
+                  {
+                    title: settings.why_point9,
+                    desc: settings.why_desc9,
+                  },
+                ]
+                  .filter(item => item.title)
+                  .map((item, index) => (
+                    <li key={index}>
+                      <img src={starIcon} alt="icon" />
+                      <div>
+                        <h3>{item.title}</h3>
+                        {item.desc && <p>{item.desc}</p>}
+                      </div>
+                    </li>
+                  ))}
               </ul>
+
+
 
               <p>
                 Partner with Vivacious for reliable service, modern solutions,
@@ -95,17 +124,17 @@ const WhyChooseUs = () => {
         <div className="counter-section">
           {counters.map((item, index) => (
             <div key={index} className="counter-box">
-              
+
               <h3>{item.label}+</h3>
               <p>{item.value}</p>
             </div>
-            
+
           ))}
           <div className="counter-box-experience">
-              
-              <h3>15+ Year</h3>
-              <p>Experience</p>
-            </div>
+
+            <h3>15+ Year</h3>
+            <p>Experience</p>
+          </div>
 
         </div>
 

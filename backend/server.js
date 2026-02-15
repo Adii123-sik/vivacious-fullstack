@@ -16,6 +16,7 @@ import settingsRoutes from "./routes/settingsRoutes.js";
 import historyRoutes from "./routes/historyRoutes.js";
 import faqRoutes from "./routes/faqRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js";
+import offlineServiceRoutes from "./routes/offlineServiceRoutes.js"
 
 /* ================= CONFIG ================= */
 dotenv.config();
@@ -77,6 +78,8 @@ app.use("/api/settings", settingsRoutes);
 app.use("/api/history", historyRoutes);
 app.use("/api/faq", faqRoutes);
 app.use("/api/services", serviceRoutes);
+app.use("/api/offline-services", offlineServiceRoutes);
+
 
 /* ================= GLOBAL ERROR HANDLER ================= */
 

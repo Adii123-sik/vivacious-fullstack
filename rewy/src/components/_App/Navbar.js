@@ -2,7 +2,12 @@ import React from "react"
 import { useRecoilState } from "recoil"
 import { collapsedState } from "../../utils/recoil-atoms"
 import { Link } from "gatsby"
-import { submitQuery, getPricingPlans, getSettings } from "../../utils/api"
+import {
+  submitQuery,
+  getPricingPlans,
+  getSettings,
+  getServices
+} from "../../utils/api"
 
 /* ================= QUERY MODAL ================= */
 
@@ -68,13 +73,12 @@ const QueryModal = ({ open, onClose }) => {
         {submitted && (
           <div className="qs-success">
             ✅ Your query has been sent successfully.
-            We will contact you shortly.
           </div>
         )}
 
         {failed && (
           <div className="qs-error-box">
-            ❌ Something went wrong. Please try again.
+            ❌ Something went wrong.
           </div>
         )}
 
@@ -110,12 +114,16 @@ const Navbar = () => {
   const [pricingServices, setPricingServices] = React.useState([])
   const [settings, setSettings] = React.useState(null)
 
-  // ✅ NEW STATE (ONLY ADDITION)
   const [pricingOpen, setPricingOpen] = React.useState(false)
+
+  // ✅ NEW SERVICES STATE
+  const [services, setServices] = React.useState([])
+  const [servicesOpen, setServicesOpen] = React.useState(false)
 
   const closeNavbar = () => {
     setCollapsed(true)
     setPricingOpen(false)
+    setServicesOpen(false)
   }
 
   const toggleNavbar = () => setCollapsed(!collapsed)
@@ -123,6 +131,11 @@ const Navbar = () => {
   const togglePricing = (e) => {
     e.preventDefault()
     setPricingOpen(prev => !prev)
+  }
+
+  const toggleServices = (e) => {
+    e.preventDefault()
+    setServicesOpen(prev => !prev)
   }
 
   const classOne = collapsed
@@ -133,7 +146,7 @@ const Navbar = () => {
     ? "navbar-toggler navbar-toggler-right collapsed"
     : "navbar-toggler navbar-toggler-right"
 
-  /* ===== FETCH PRICING SERVICES ===== */
+  /* ===== FETCH PRICING ===== */
   React.useEffect(() => {
     const loadPricingServices = async () => {
       try {
@@ -170,6 +183,20 @@ const Navbar = () => {
     loadSettings()
   }, [])
 
+  /* ===== FETCH SERVICES ===== */
+  React.useEffect(() => {
+    const loadServices = async () => {
+      try {
+        const data = await getServices()
+        const activeServices = data.filter(item => item.is_active === 1)
+        setServices(activeServices)
+      } catch (error) {
+        console.error("Failed to load services", error)
+      }
+    }
+    loadServices()
+  }, [])
+
   return (
     <>
       <div id="navbar" className="navbar-area">
@@ -179,11 +206,7 @@ const Navbar = () => {
 
               <Link to="/" className="navbar-brand" onClick={closeNavbar}>
                 {settings?.logo_image ? (
-                  <img
-                    src={settings.logo_image}
-                    alt="logo"
-                    style={{ height: 50 }}
-                  />
+                  <img src={settings.logo_image} alt="logo" style={{ height: 50 }} />
                 ) : (
                   <span className="fw-bold">Logo</span>
                 )}
@@ -199,20 +222,35 @@ const Navbar = () => {
                 <ul className="navbar-nav">
                   <li className="nav-item"><Link to="/" className="nav-link" onClick={closeNavbar}>Home</Link></li>
                   <li className="nav-item"><Link to="/about-us" className="nav-link" onClick={closeNavbar}>About</Link></li>
-                  <li className="nav-item"><Link to="/services" className="nav-link" onClick={closeNavbar}>Services</Link></li>
+
+                  {/* ✅ SERVICES DROPDOWN */}
+                  <li className={`nav-item dropdown services-dropdown ${servicesOpen ? "show" : ""}`}>
+                    <a href="#" className="nav-link dropdown-toggle" onClick={toggleServices}>
+                      Services
+                    </a>
+                    <ul className={`dropdown-menu ${servicesOpen ? "show" : ""}`}>
+                      {services.map(service => (
+                        <li key={service.id}>
+                          <Link
+                            to={`/services/service-details/${service.id}`}
+                            className="dropdown-item"
+                            onClick={closeNavbar}
+                          >
+                            {service.service_name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+
                   <li className="nav-item"><Link to="/portfolio" className="nav-link" onClick={closeNavbar}>Portfolio</Link></li>
                   <li className="nav-item"><Link to="/blog" className="nav-link" onClick={closeNavbar}>Blog</Link></li>
 
-                  {/* ✅ PRICING DROPDOWN (TOGGLE ON MOBILE) */}
+                  {/* PRICING DROPDOWN */}
                   <li className={`nav-item dropdown pricing-dropdown ${pricingOpen ? "show" : ""}`}>
-                    <a
-                      href="#"
-                      className="nav-link dropdown-toggle"
-                      onClick={togglePricing}
-                    >
+                    <a href="#" className="nav-link dropdown-toggle" onClick={togglePricing}>
                       Pricing
                     </a>
-
                     <ul className={`dropdown-menu ${pricingOpen ? "show" : ""}`}>
                       {pricingServices.map(service => (
                         <li key={service.service_slug}>
@@ -232,10 +270,26 @@ const Navbar = () => {
                 </ul>
 
                 <div className="others-option">
-                  <button className="default-btn" onClick={() => setQueryOpen(true)}>
+
+                  {/* OFFLINE CAMPAIGN LINK */}
+                  <Link
+                    to="/offline-advertisment"
+                    className="offline-btn"
+                    onClick={closeNavbar}
+                  >
+                    Offline Campaigns
+                  </Link>
+
+                  {/* EXISTING BUTTON */}
+                  <button
+                    className="default-btn"
+                    onClick={() => setQueryOpen(true)}
+                  >
                     Any Query ? <span></span>
                   </button>
+
                 </div>
+
               </div>
             </nav>
           </div>

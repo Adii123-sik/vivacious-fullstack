@@ -13406,3 +13406,427 @@ Go Top CSS
 .partner-card:hover .partner-logo {
   transform: scale(1.05) !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+  .services-dropdown:hover .dropdown-menu,
+  .pricing-dropdown:hover .dropdown-menu {
+    display: block !important;
+  }
+}
+
+
+
+
+
+
+
+
+.offline-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+  padding: 10px 22px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  margin-right: 12px !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid #000 !important;
+}
+
+.offline-btn:hover {
+  background: #111 !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+}
+
+
+
+
+
+/* ===== DESKTOP HOVER ===== */
+@media (min-width: 992px) {
+  .services-dropdown:hover .dropdown-menu,
+  .pricing-dropdown:hover .dropdown-menu {
+    display: block !important;
+  }
+}
+
+/* ===== MOBILE CLICK CONTROL ===== */
+@media (max-width: 991px) {
+  .dropdown-menu {
+    display: none !important;
+  }
+
+  .dropdown.show .dropdown-menu {
+    display: block !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ===== OFFLINE BUTTON ===== */
+.offline-btn {
+  background: #000 !important;
+  color: #fff !important;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  margin-right: 12px !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid #000 !important;
+}
+
+.offline-btn:hover {
+  background: #1f4592 !important;
+  
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+}
+
+/* ===== RESPONSIVE BUTTON LAYOUT ===== */
+@media (max-width: 991px) {
+  .others-option {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 15px !important;
+  }
+
+  .offline-btn {
+    width: 100% !important;
+    text-align: center !important;
+    margin-right: 0 !important;
+  }
+
+  .default-btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.features-list li {
+  background: #f8f9fc;
+  border: 1px solid #e4e8f0;
+  border-radius: 10px;
+  padding: 20px 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.features-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.features-list li img {
+  width: 45px;
+  height: 45px;
+  background: #eef1ff;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.features-list li h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.features-list li p {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+}
+.counter-section {
+  margin-top: -40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.offline-area {
+  padding: 100px 0;
+  background: #f7f7f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+.offline-img img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.accordion-wrapper {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  padding: 18px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.accordion-header:hover {
+  background: #f1f4ff;
+}
+
+.accordion-item.active .accordion-header {
+  background: #dbe6ff;
+}
+
+.accordion-icon {
+  font-size: 18px;
+}
+
+.accordion-body {
+  padding: 20px 25px;
+  background: #f9fafc;
+}
+
+.accordion-body p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+.offline-intro {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.offline-intro p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+/* Wrapper */
+.accordion-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Each Item */
+.accordion-item {
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Header */
+.accordion-header {
+  padding: 22px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+  color: #222;
+  transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #f9fafc;
+}
+
+/* Active State */
+.accordion-item.active .accordion-header {
+  background: #f1f4ff;
+  color: #3b5bdb;
+  font-weight: 600;
+}
+
+/* Icon */
+.accordion-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Body */
+.accordion-body {
+  padding: 20px 28px 25px;
+  background: #ffffff;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.accordion-body p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+}
+
+/* Smooth Fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.service-cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 26px;
+  background: linear-gradient(135deg, #ff6a00, #ff3c00);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 60, 0, 0.3);
+}
+
+/* 🔵 Hover State */
+.service-cta-btn:hover {
+  background: #1e2a55;   /* Blue */
+  color: #ffffff;        /* White text */
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+}
+
+
