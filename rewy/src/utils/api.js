@@ -115,7 +115,7 @@ export const getServiceById = async (id) => {
 
 
 
-// ✅ BLOG BY ID (SAFE)
+// ✅ BLOG BY slug (SAFE)
 export const getBlogById = async (id) => {
   try {
     if (typeof window === "undefined") return null;

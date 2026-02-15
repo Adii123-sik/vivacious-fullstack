@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import axios from "axios";
 import BlogSidebar from "./BlogSidebar";
-import {API_BASE_URL} from "../../config/apiConfig"
+import { API_BASE_URL } from "../../config/apiConfig";
 
 const BASE_URL = `${API_BASE_URL}`;
 
-const BlogDetailsContent = ({ id }) => {
+const BlogDetailsContent = ({ slug }) => {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!id) {
+    if (!slug) {
       setLoading(false);
       return;
     }
@@ -19,7 +19,7 @@ const BlogDetailsContent = ({ id }) => {
     const loadBlog = async () => {
       try {
         const { data } = await axios.get(
-          `${BASE_URL}/api/blogs/${id}`
+          `${BASE_URL}/api/blogs/${slug}`
         );
         setBlog(data);
       } catch (err) {
@@ -30,11 +30,11 @@ const BlogDetailsContent = ({ id }) => {
     };
 
     loadBlog();
-  }, [id]);
+  }, [slug]);
 
   /* ================= STATES ================= */
 
-  if (!id) {
+  if (!slug) {
     return (
       <section className="blog-details-area ptb-100 text-center">
         <div className="container">
@@ -73,26 +73,20 @@ const BlogDetailsContent = ({ id }) => {
           {/* LEFT CONTENT */}
           <div className="col-lg-8 col-md-12">
             <div className="blog-details-desc">
-              {/* IMAGE */}
+
               {blog.image && (
                 <div className="article-image">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                  />
+                  <img src={blog.image} alt={blog.title} />
                 </div>
               )}
 
               <div className="article-content">
-                {/* META */}
                 <div className="entry-meta">
                   <ul>
                     <li>
                       <i className="bx bx-folder-open"></i>
                       <span>Category</span>
-                      <Link to="/blog">
-                        {blog.category}
-                      </Link>
+                      <Link to="/blog">{blog.category}</Link>
                     </li>
 
                     <li>
@@ -107,10 +101,8 @@ const BlogDetailsContent = ({ id }) => {
                   </ul>
                 </div>
 
-                {/* TITLE */}
                 <h3>{blog.title}</h3>
 
-                {/* CONTENT */}
                 <div
                   className="article-text"
                   style={{ whiteSpace: "pre-line" }}

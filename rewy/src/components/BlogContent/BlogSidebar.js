@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import axios from "axios";
-import {API_BASE_URL} from "../../config/apiConfig"
+import { API_BASE_URL } from "../../config/apiConfig";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
-
-
 
 const BASE_URL = `${API_BASE_URL}`;
 
@@ -23,7 +21,6 @@ const BlogSidebar = () => {
       const { data } = await axios.get(`${BASE_URL}/api/blogs`);
       setBlogs(data);
 
-      // category count
       const map = {};
       data.forEach((b) => {
         if (b.category) {
@@ -44,18 +41,16 @@ const BlogSidebar = () => {
 
   return (
     <div className="widget-area">
+
       {/* ================= POPULAR POSTS ================= */}
       <div className="widget widget_tracer_posts_thumb">
         <h3 className="widget-title">Popular Posts</h3>
 
-        {/* ===== MOBILE: SLIDER ===== */}
+        {/* MOBILE SLIDER */}
         <div className="d-block d-md-none">
           <Swiper
             modules={[Autoplay]}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             spaceBetween={15}
             slidesPerView={1}
             loop
@@ -63,10 +58,7 @@ const BlogSidebar = () => {
             {blogs.map((b) => (
               <SwiperSlide key={b.id}>
                 <article className="item">
-                  <Link
-                    to={`/blog/blog-details/${b.id}`}
-                    className="thumb"
-                  >
+                  <Link to={`/blog/${b.slug}`} className="thumb">
                     <img
                       src={b.image}
                       alt={b.title}
@@ -85,7 +77,7 @@ const BlogSidebar = () => {
                       {new Date(b.created_at).toLocaleDateString()}
                     </span>
                     <h4 className="title usmall">
-                      <Link to={`/blog/blog-details/${b.id}`}>
+                      <Link to={`/blog/${b.slug}`}>
                         {b.title}
                       </Link>
                     </h4>
@@ -96,7 +88,7 @@ const BlogSidebar = () => {
           </Swiper>
         </div>
 
-        {/* ===== DESKTOP: SCROLLABLE LIST ===== */}
+        {/* DESKTOP LIST */}
         <div
           className="d-none d-md-block"
           style={{
@@ -107,10 +99,7 @@ const BlogSidebar = () => {
         >
           {blogs.map((b) => (
             <article className="item" key={b.id}>
-              <Link
-                to={`/blog/blog-details/${b.id}`}
-                className="thumb"
-              >
+              <Link to={`/blog/${b.slug}`} className="thumb">
                 <img
                   src={b.image}
                   alt={b.title}
@@ -130,7 +119,7 @@ const BlogSidebar = () => {
                 </span>
 
                 <h4 className="title usmall">
-                  <Link to={`/blog/blog-details/${b.id}`}>
+                  <Link to={`/blog/${b.slug}`}>
                     {b.title}
                   </Link>
                 </h4>
@@ -145,15 +134,11 @@ const BlogSidebar = () => {
       {/* ================= CATEGORIES ================= */}
       <div className="widget widget_categories">
         <h3 className="widget-title">Categories</h3>
-
         <ul>
           {categories.map((c) => (
             <li key={c.name}>
               <Link to="/blog">
-                {c.name}{" "}
-                <span className="post-count">
-                  ({c.count})
-                </span>
+                {c.name} <span className="post-count">({c.count})</span>
               </Link>
             </li>
           ))}

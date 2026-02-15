@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import starIcon from "../../images/star-icon.png";
 import { getBlogs } from "../../utils/api";
-import {API_BASE_URL} from "../../config/apiConfig"
+import { API_BASE_URL } from "../../config/apiConfig"
 
 const BASE_URL = `${API_BASE_URL}`;
 
@@ -34,7 +34,8 @@ const OurBlog = () => {
           {blogs.map((b) => (
             <div key={b.id} className="blog-card">
               <div className="blog-card__header">
-                <Link to={`/blog/blog-details/${b.id}`}>
+               <Link to={`/blog/${b.slug}`}>
+
                   <img
                     src={b.image}
                     alt={b.title}
@@ -50,7 +51,8 @@ const OurBlog = () => {
                 </span>
 
                 <h4 className="blog-card__title">
-                  <Link to={`/blog/blog-details/${b.id}`}>{b.title}</Link>
+                  <Link to={`/blog/${b.slug}`}>
+                  </Link>
                 </h4>
 
                 <p className="blog-card__desc">
@@ -60,7 +62,7 @@ const OurBlog = () => {
 
               <div className="blog-card__footer">
                 <div className="blog-user">
-                  
+
                   <div className="blog-user__info">
                     <h5>{b.author}</h5>
                     <small>{b.published_date}</small>

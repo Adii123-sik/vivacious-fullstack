@@ -2,7 +2,7 @@ import express from "express";
 import {
   createService,
   getServices,
-  getServiceById,
+  getServiceBySlug,
   updateService,
   deleteService,
 } from "../controllers/serviceController.js";
@@ -14,8 +14,8 @@ const router = express.Router();
 /* GET ALL */
 router.get("/", getServices);
 
-/* GET ONE */
-router.get("/:id", getServiceById);
+/* GET SINGLE BY SLUG */
+router.get("/:slug", getServiceBySlug);
 
 /* CREATE */
 router.post(
@@ -24,14 +24,14 @@ router.post(
   createService
 );
 
-/* UPDATE */
+/* UPDATE BY SLUG */
 router.put(
-  "/:id",
+  "/:slug",
   uploadService.single("service_banner_image"),
   updateService
 );
 
-/* DELETE */
-router.delete("/:id", deleteService);
+/* DELETE BY SLUG */
+router.delete("/:slug", deleteService);
 
 export default router;

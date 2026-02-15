@@ -1,19 +1,19 @@
 import React from "react";
 import { Router } from "@reach/router";
-
 import Layout from "../../components/_App/Layout";
 import Navbar from "../../components/_App/Navbar";
 import Footer from "../../components/_App/Footer";
 import PageBanner from "../../components/Common/PageBanner";
 import ServicePricing from "../../components/Services-Pricing/ServicePricing";
 import ProjectStartArea from "../../components/Index/ProjectStartArea";
+import Seo from "../../components/_App/seo";
 
 const PricingDetailsPage = () => {
   return (
     <Layout>
       <Navbar />
 
-      {/* ✅ client-only routing */}
+      {/* Client-only routing */}
       <Router basepath="/pricing">
         <PricingDetails path="/:serviceSlug" />
       </Router>
@@ -26,13 +26,17 @@ const PricingDetailsPage = () => {
 const PricingDetails = ({ serviceSlug }) => {
   if (!serviceSlug) return null;
 
-  const pageTitle =
-    serviceSlug
-      .replace(/-/g, " ")
-      .replace(/\b\w/g, (c) => c.toUpperCase()) + " Pricing";
+  const formattedTitle = serviceSlug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+  const pageTitle = `${formattedTitle} Pricing`;
 
   return (
     <>
+      {/* ✅ SEO TITLE FIX */}
+      <Seo title={pageTitle} />
+
       <PageBanner
         pageTitle={pageTitle}
         homePageText="Home"
@@ -40,7 +44,6 @@ const PricingDetails = ({ serviceSlug }) => {
         activePageText={pageTitle}
       />
 
-      {/* 🔥 DB slug directly used */}
       <ServicePricing serviceSlug={serviceSlug} />
       <ProjectStartArea />
     </>

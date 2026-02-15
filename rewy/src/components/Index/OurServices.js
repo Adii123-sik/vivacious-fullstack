@@ -91,7 +91,8 @@ const ServicesOne = () => {
 
                 <div className="vv-card__actions">
                   <Link
-                    to={`/services/service-details/${service.id}`}
+                    to={`/services/${service.slug}`}
+
                     className="vv-btn vv-btn--primary"
                   >
                     View Details

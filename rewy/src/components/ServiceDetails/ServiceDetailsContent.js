@@ -1,22 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
-import { getServiceById } from "../../utils/api";
-import { API_BASE_URL } from "../../config/apiConfig";
-const ServiceDetailsContent = ({ id }) => {
-  const [service, setService] = useState(null);
 
-  useEffect(() => {
-    if (!id) return;
-    getServiceById(id).then(setService);
-  }, [id]);
-
-  if (!id) {
-    return (
-      <div className="services-details-area ptb-100 text-center">
-        <h3>Invalid Service</h3>
-      </div>
-    );
-  }
+const ServiceDetailsContent = ({ service }) => {
 
   if (!service) {
     return (
@@ -30,7 +15,7 @@ const ServiceDetailsContent = ({ id }) => {
     <section className="services-details-area ptb-100">
       <div className="container">
         <div className="row">
-          <div className="col-lg-15 col-md-12">
+          <div className="col-lg-12">
 
             {/* BANNER IMAGE */}
             {service.service_banner_image && (
@@ -49,20 +34,20 @@ const ServiceDetailsContent = ({ id }) => {
               <h3>{service.intro_heading}</h3>
               <p>{service.intro_content}</p>
 
-              {/* INCLUDED SECTION (EXACT SAME UI) */}
+              {/* INCLUDED SECTION */}
               <div className="vv-sm-section">
                 <h3 className="vv-sm-title">{service.include_heading}</h3>
                 <p className="vv-sm-subtitle">
                   {service.service_description}
                 </p>
 
-                {/* 3 CARDS */}
+                {/* 3 INCLUDE CARDS */}
                 <div className="row vv-sm-cards">
                   {[1, 2, 3].map((n) =>
                     service[`include_card${n}_heading`] ? (
                       <div key={n} className="col-lg-4 col-md-6">
                         <div className="vv-sm-card">
-                          <div className={`vv-sm-card__icon vv-sm-card__icon--blue`}>
+                          <div className="vv-sm-card__icon vv-sm-card__icon--blue">
                             <i className={service[`include_card${n}_icon`]}></i>
                           </div>
                           <h4 className="vv-sm-card__title">
@@ -77,8 +62,9 @@ const ServiceDetailsContent = ({ id }) => {
                   )}
                 </div>
 
-                {/* DELIVERABLES + HOW WE WORK (INLINE) */}
+                {/* DELIVERABLES + HOW WE WORK */}
                 <div className="row vv-sm-grid">
+
                   <div className="col-lg-6">
                     <div className="vv-sm-panel">
                       <h4 className="vv-sm-panel__title">
@@ -102,22 +88,23 @@ const ServiceDetailsContent = ({ id }) => {
                       <div className="vv-sm-steps">
                         {service.how_we_work_content
                           ?.split("\n")
-                          .map((s, i) => (
+                          .map((step, i) => (
                             <div key={i} className="vv-sm-step">
                               <span className="vv-sm-step__num">
                                 {i + 1}
                               </span>
                               <div>
-                                <p>{s}</p>
+                                <p>{step}</p>
                               </div>
                             </div>
                           ))}
                       </div>
                     </div>
                   </div>
+
                 </div>
 
-                {/* RESULT */}
+                {/* EXPECTED RESULTS */}
                 <div className="vv-sm-results">
                   <div className="vv-sm-results__left">
                     <h4>{service.result_expect_heading}</h4>
@@ -130,6 +117,7 @@ const ServiceDetailsContent = ({ id }) => {
                     </Link>
                   </div>
                 </div>
+
               </div>
 
               {/* INDUSTRIES */}

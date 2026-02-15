@@ -29,12 +29,12 @@ const Services = () => {
     loadServices();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (slug) => {
     if (!window.confirm("Delete this service?")) return;
 
     try {
       await axios.delete(
-        `${API_BASE_URL}/api/services/${id}`
+        `${API_BASE_URL}/api/services/${slug}`
       );
       toast.success("Service deleted");
       loadServices();
@@ -51,7 +51,6 @@ const Services = () => {
         <Navbar onMenuClick={() => setSidebarOpen(true)} />
 
         <main className="pt-20 px-4 md:px-6">
-          {/* HEADER */}
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-xl md:text-2xl font-semibold">
               Services
@@ -59,8 +58,7 @@ const Services = () => {
 
             <button
               onClick={() => navigate("/services/add")}
-              className="bg-orange-500 hover:bg-orange-600
-              text-white px-4 py-2 rounded text-sm"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded text-sm"
             >
               + Add Service
             </button>
@@ -75,7 +73,7 @@ const Services = () => {
                   <tr>
                     <th className="border px-3 py-2">Banner</th>
                     <th className="border px-3 py-2">Service Name</th>
-                    <th className="border px-3 py-2">Category</th>
+                    <th className="border px-3 py-2">Slug</th>
                     <th className="border px-3 py-2 text-center">
                       Action
                     </th>
@@ -84,7 +82,7 @@ const Services = () => {
 
                 <tbody>
                   {services.map((s) => (
-                    <tr key={s.id} className="hover:bg-gray-50">
+                    <tr key={s.slug} className="hover:bg-gray-50">
                       <td className="border px-3 py-2">
                         {s.service_banner_image ? (
                           <img
@@ -99,30 +97,27 @@ const Services = () => {
                         )}
                       </td>
 
-
                       <td className="border px-3 py-2">
                         {s.service_name}
                       </td>
 
                       <td className="border px-3 py-2">
-                        {s.category}
+                        {s.slug}
                       </td>
 
                       <td className="border px-3 py-2 text-center space-x-2">
                         <button
                           onClick={() =>
-                            navigate(`/services/edit/${s.id}`)
+                            navigate(`/services/edit/${s.slug}`)
                           }
-                          className="bg-blue-500 hover:bg-blue-600
-                          text-white px-3 py-1 rounded"
+                          className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
                         >
                           Edit
                         </button>
 
                         <button
-                          onClick={() => handleDelete(s.id)}
-                          className="bg-red-500 hover:bg-red-600
-                          text-white px-3 py-1 rounded"
+                          onClick={() => handleDelete(s.slug)}
+                          className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
                         >
                           Delete
                         </button>
@@ -132,10 +127,7 @@ const Services = () => {
 
                   {!services.length && (
                     <tr>
-                      <td
-                        colSpan="4"
-                        className="text-center py-6 text-gray-400"
-                      >
+                      <td colSpan="4" className="text-center py-6 text-gray-400">
                         No services found
                       </td>
                     </tr>

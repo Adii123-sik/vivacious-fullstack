@@ -232,7 +232,8 @@ const Navbar = () => {
                       {services.map(service => (
                         <li key={service.id}>
                           <Link
-                            to={`/services/service-details/${service.id}`}
+                           to={`/services/${service.slug}`}
+
                             className="dropdown-item"
                             onClick={closeNavbar}
                           >

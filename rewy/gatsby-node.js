@@ -1,7 +1,6 @@
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
 
-  // Existing DSG page – DO NOT TOUCH
   createPage({
     path: "/using-dsg",
     component: require.resolve("./src/templates/using-dsg.js"),
@@ -10,26 +9,23 @@ exports.createPages = async ({ actions }) => {
   });
 };
 
-/**
- * ✅ CLIENT-ONLY ROUTES
- */
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions;
 
-  // ✅ services details (already working)
-  if (page.path.match(/^\/services\/service-details/)) {
-    page.matchPath = "/services/service-details/*";
+  // SERVICES SLUG ROUTE
+  if (page.path === "/services/service-details/") {
+    page.matchPath = "/services/*";
     createPage(page);
   }
 
-  // ✅ blog details (already working)
-  if (page.path.match(/^\/blog\/blog-details/)) {
-    page.matchPath = "/blog/blog-details/*";
+  // BLOG SLUG ROUTE
+  if (page.path === "/blog/blog-details/") {
+    page.matchPath = "/blog/*";
     createPage(page);
   }
 
-  // 🔥 PRICING DETAILS (THIS WAS MISSING)
-  if (page.path.match(/^\/pricing\/pricing-details/)) {
+  // PRICING SLUG ROUTE
+  if (page.path === "/pricing/pricing-details/") {
     page.matchPath = "/pricing/*";
     createPage(page);
   }

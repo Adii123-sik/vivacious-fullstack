@@ -148,8 +148,6 @@
 //   );
 // };
 
-
-
 import db from "../config/db.js";
 
 /* ================= GET ALL BLOGS ================= */
@@ -166,15 +164,20 @@ export const getBlogs = (req, res) => {
   );
 };
 
-/* ================= GET SINGLE BLOG ================= */
-export const getBlogById = (req, res) => {
+/* ================= GET BLOG BY SLUG ================= */
+export const getBlogBySlug = (req, res) => {
   db.query(
-    "SELECT * FROM blogs WHERE id=?",
-    [req.params.id],
+    "SELECT * FROM blogs WHERE slug = ? AND status = 1",
+    [req.params.slug],
     (err, rows) => {
-      if (err || rows.length === 0) {
+      if (err) {
+        return res.status(500).json({ message: "DB error" });
+      }
+
+      if (!rows.length) {
         return res.status(404).json({ message: "Blog not found" });
       }
+
       res.json(rows[0]);
     }
   );
@@ -184,31 +187,30 @@ export const getBlogById = (req, res) => {
 export const addBlog = (req, res) => {
   const {
     title,
+    slug,
     category,
     author,
     short_desc,
     content,
   } = req.body;
 
-  // ✅ Cloudinary image URL
   const image = req.file ? req.file.path : null;
 
-  if (!title || !content) {
-    return res
-      .status(400)
-      .json({ message: "Required fields missing" });
+  if (!title || !content || !slug) {
+    return res.status(400).json({ message: "Required fields missing" });
   }
 
   const sql = `
     INSERT INTO blogs
-    (title, category, author, short_desc, content, image, status)
-    VALUES (?, ?, ?, ?, ?, ?, 1)
+    (title, slug, category, author, short_desc, content, image, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 1)
   `;
 
   db.query(
     sql,
     [
       title,
+      slug,
       category,
       author,
       short_desc,
@@ -229,24 +231,23 @@ export const addBlog = (req, res) => {
 export const updateBlog = (req, res) => {
   const {
     title,
+    slug,
     category,
     author,
     short_desc,
     content,
   } = req.body;
 
-  // ✅ New image (optional)
   const image = req.file ? req.file.path : null;
 
-  if (!title || !content) {
-    return res
-      .status(400)
-      .json({ message: "Required fields missing" });
+  if (!title || !content || !slug) {
+    return res.status(400).json({ message: "Required fields missing" });
   }
 
   let sql = `
     UPDATE blogs SET
       title=?,
+      slug=?,
       category=?,
       author=?,
       short_desc=?,
@@ -255,13 +256,13 @@ export const updateBlog = (req, res) => {
 
   const values = [
     title,
+    slug,
     category,
     author,
     short_desc,
     content,
   ];
 
-  // 👉 Image sirf tab update hogi jab nayi upload ho
   if (image) {
     sql += `, image=?`;
     values.push(image);
@@ -273,9 +274,7 @@ export const updateBlog = (req, res) => {
   db.query(sql, values, (err) => {
     if (err) {
       console.error("UPDATE BLOG ERROR:", err);
-      return res
-        .status(500)
-        .json({ message: "Update failed" });
+      return res.status(500).json({ message: "Update failed" });
     }
     res.json({ message: "Blog updated successfully" });
   });
@@ -289,11 +288,30 @@ export const deleteBlog = (req, res) => {
     (err) => {
       if (err) {
         console.error("DELETE BLOG ERROR:", err);
-        return res
-          .status(500)
-          .json({ message: "Delete failed" });
+        return res.status(500).json({ message: "Delete failed" });
       }
       res.json({ message: "Blog deleted successfully" });
+    }
+  );
+};
+
+
+
+/* ================= GET BLOG BY ID ================= */
+export const getBlogById = (req, res) => {
+  db.query(
+    "SELECT * FROM blogs WHERE id = ?",
+    [req.params.id],
+    (err, rows) => {
+      if (err) {
+        return res.status(500).json({ message: "DB error" });
+      }
+
+      if (!rows.length) {
+        return res.status(404).json({ message: "Blog not found" });
+      }
+
+      res.json(rows[0]);
     }
   );
 };

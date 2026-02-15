@@ -1,10 +1,11 @@
 import express from "express";
 import {
   getBlogs,
-  getBlogById,
+  getBlogBySlug,
   addBlog,
   updateBlog,
   deleteBlog,
+  getBlogById
 } from "../controllers/blogController.js";
 
 import { uploadBlog } from "../config/multer.js";
@@ -14,11 +15,11 @@ const router = express.Router();
 /* ================= PUBLIC ================= */
 router.get("/blogs", getBlogs);
 
-/* ✅ NEW – DIRECT ID ROUTE */
-router.get("/blogs/:id", getBlogById);
-
-/* (optional – old route agar kahin use ho raha ho) */
 router.get("/blogs/id/:id", getBlogById);
+
+
+/* ✅ SLUG ROUTE */
+router.get("/blogs/:slug", getBlogBySlug);
 
 /* ================= ADMIN ================= */
 router.post(
@@ -34,5 +35,6 @@ router.put(
 );
 
 router.delete("/blogs/:id", deleteBlog);
+
 
 export default router;

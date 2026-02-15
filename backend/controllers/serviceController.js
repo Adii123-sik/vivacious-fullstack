@@ -118,7 +118,6 @@
 // };
 
 
-
 import db from "../config/db.js";
 
 /* CREATE SERVICE */
@@ -153,15 +152,16 @@ export const getServices = (req, res) => {
   });
 };
 
-/* GET SINGLE SERVICE */
-export const getServiceById = (req, res) => {
+/* GET SERVICE BY SLUG */
+export const getServiceBySlug = (req, res) => {
   db.query(
-    "SELECT * FROM services WHERE id = ?",
-    [req.params.id],
+    "SELECT * FROM services WHERE slug = ?",
+    [req.params.slug],
     (err, rows) => {
       if (err) return res.status(500).json({ message: "Fetch failed" });
       if (!rows.length)
         return res.status(404).json({ message: "Service not found" });
+
       res.json(rows[0]);
     }
   );
@@ -181,8 +181,8 @@ export const updateService = (req, res) => {
     }
 
     db.query(
-      "UPDATE services SET ? WHERE id = ?",
-      [data, req.params.id],
+      "UPDATE services SET ? WHERE slug = ?",
+      [data, req.params.slug],
       (err) => {
         if (err) return res.status(500).json({ message: "Update failed" });
         res.json({ message: "Service updated successfully" });
@@ -196,8 +196,8 @@ export const updateService = (req, res) => {
 /* DELETE SERVICE */
 export const deleteService = (req, res) => {
   db.query(
-    "DELETE FROM services WHERE id = ?",
-    [req.params.id],
+    "DELETE FROM services WHERE slug = ?",
+    [req.params.slug],
     (err) => {
       if (err) return res.status(500).json({ message: "Delete failed" });
       res.json({ message: "Service deleted successfully" });
