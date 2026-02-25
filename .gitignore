@@ -1,0 +1,13 @@
+node_modules
+.env
+
+backend/node_modules
+backend/.env
+
+rewy/node_modules
+rewy/.env
+rewy/public
+
+admin/node_modules
+admin/.env
+admin/dist
